@@ -27,6 +27,6 @@ export const LightTheme: DefaultTheme = {
     },
     fonts: {
         title: '"Roboto", "Helvetica", "Arial", "sans-serif"',
-        main: '"Roboto", "Helvetica", "Arial", "sans-serif"',
+        main: '"system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu", "Cantarell", "Helvetica Neue", "Arial", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
     },
 };

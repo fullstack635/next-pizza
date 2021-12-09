@@ -32,8 +32,8 @@ declare module 'styled-components' {
             xl: 'screen and (max-width: 1280px)'
         },
         fonts: {
-            title: '"Roboto", "Helvetica", "Arial", "sans-serif"',
-            main: '"Roboto", "Helvetica", "Arial", "sans-serif"',
+            title: string,
+            main: string,
         },
     }
 }
