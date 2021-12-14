@@ -11,6 +11,9 @@ export default function Main(): JSX.Element {
     return (
         <MMain>
             <Pizza />
+            <Combo />
+            <Snacks />
+            <Deserts />
             <Drinks />
         </MMain>
     )

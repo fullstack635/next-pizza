@@ -11,7 +11,6 @@ export default function Index(): JSX.Element {
             <StoriesWidget />
             <PopularWidget />
             <Main />
-            <Sample></Sample>
         </Layout>
     )
 }
