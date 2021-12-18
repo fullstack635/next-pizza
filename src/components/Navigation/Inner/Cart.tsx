@@ -1,9 +1,12 @@
+import { observer } from 'mobx-react-lite';
 import React from 'react'
 import styled from 'styled-components'
+import { useRootStore } from '../../../pages/_app'
 
-export default function Cart(): JSX.Element {
+const Cart = observer(() => {
+    const state = useRootStore();
     return (
-        <CCart>
+        <CCart onClick={() => state.UiStore.showCartModal()}>
             <CartButton>
                 Корзина
                 <Divider />
@@ -14,8 +17,9 @@ export default function Cart(): JSX.Element {
             </CartButton>
         </CCart>
     )
-}
+});
 
+export default Cart;
 
 const CCart = styled.div`
     position: absolute;
