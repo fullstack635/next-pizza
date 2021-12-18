@@ -681,13 +681,6 @@ export const pseudostore: store = {
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/7515e819ea624b8784f418a67bdb33fe_292x292.jpeg'
         },
         {
-            id: 84,
-            name: 'Вишневый нектар Rich',
-            desc: '1 л',
-            price: '179',
-            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/7515e819ea624b8784f418a67bdb33fe_292x292.jpeg'
-        },
-        {
             id: 85,
             name: 'Малиновый пунш',
             desc: 'Согревающий напиток на основе пюре малины и черной смородины, 0,3 л',
