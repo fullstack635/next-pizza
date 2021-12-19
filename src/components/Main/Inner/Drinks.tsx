@@ -7,7 +7,7 @@ export default function Drinks() {
     const state = useRootStore();
     return (
         <>
-            <Header>Напитки</Header>
+            <Header id="drink">Напитки</Header>
             <Section>
                 {pseudostore.drinks.map((item) => (
                     <Product key={item.id} onClick={() => state.UiStore.setCurrentProduct(item)}>
@@ -22,8 +22,8 @@ export default function Drinks() {
                         </ProductInner>
                         <ProductFooter>
                             <InnerFooter>
-                                от
                                 <MoneyContainer>
+                                    от
                                     <MoneyValue> {item.price} </MoneyValue>
                                     <MoneyCurrency>₽</MoneyCurrency>
                                 </MoneyContainer>

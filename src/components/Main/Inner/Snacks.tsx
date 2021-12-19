@@ -7,7 +7,7 @@ export default function Snacks(): JSX.Element {
     const state = useRootStore();
     return (
         <>
-            <Header>Закуски</Header>
+            <Header id="snack">Закуски</Header>
             <Section>
                 {pseudostore.snacks.map((item) => (
                     <Product key={item.id} onClick={() => state.UiStore.setCurrentProduct(item)}>
@@ -22,8 +22,8 @@ export default function Snacks(): JSX.Element {
                         </ProductInner>
                         <ProductFooter>
                             <InnerFooter>
-                                от
                                 <MoneyContainer>
+                                    от
                                     <MoneyValue> {item.price} </MoneyValue>
                                     <MoneyCurrency>₽</MoneyCurrency>
                                 </MoneyContainer>

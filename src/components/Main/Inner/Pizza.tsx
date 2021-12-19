@@ -7,7 +7,7 @@ export default function Pizza(): JSX.Element {
     const state = useRootStore();
     return (
         <>
-            <Header>Пицца</Header>
+            <Header id="pizza">Пицца</Header>
             <Section>
                 {pseudostore.pizza.map((item) => (
                     <Product key={item.id} onClick={() => state.UiStore.setCurrentProduct(item)}>
@@ -22,10 +22,10 @@ export default function Pizza(): JSX.Element {
                         </ProductInner>
                         <ProductFooter>
                             <InnerFooter>
-                                от
                                 <MoneyContainer>
-                                    <MoneyValue> {item.pricesm} </MoneyValue>
-                                    <MoneyCurrency>₽</MoneyCurrency>
+                                    от
+                                    <MoneyValue> {item.price.sm} </MoneyValue>
+                                    <MoneyCurrency> ₽</MoneyCurrency>
                                 </MoneyContainer>
                                 <Button>Выбрать</Button>
                             </InnerFooter>

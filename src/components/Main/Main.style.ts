@@ -72,6 +72,7 @@ export const InnerFooter = styled.div`
     font-weight: 500;
     line-height: 42px;
     display: flex;
+    justify-content: space-between;
 `
 
 export const MoneyContainer = styled.span`

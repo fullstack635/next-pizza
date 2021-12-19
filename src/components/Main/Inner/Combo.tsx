@@ -7,7 +7,7 @@ export default function Combo(): JSX.Element {
     const state = useRootStore();
     return (
         <>
-            <Header>Комбо</Header>
+            <Header id="combo">Комбо</Header>
             <Section>
                 {pseudostore.combo.map((item) => (
                     <Product key={item.id} onClick={() => state.UiStore.setCurrentProduct(item)}>
@@ -22,8 +22,8 @@ export default function Combo(): JSX.Element {
                         </ProductInner>
                         <ProductFooter>
                             <InnerFooter>
-                                от
                                 <MoneyContainer>
+                                    от
                                     <MoneyValue> {item.price} </MoneyValue>
                                     <MoneyCurrency>₽</MoneyCurrency>
                                 </MoneyContainer>

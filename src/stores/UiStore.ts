@@ -2,7 +2,7 @@ import { action, makeObservable, observable } from "mobx"
 import { Pizza, Product } from "../constants/store";
 import { RootStore } from "./RootStore";
 
-export type CurrentModalType = 'cart' | 'pizza' | 'general' | 'none';
+export type CurrentModalType = 'cart' | 'pizza' | 'simple' | 'combo' | 'none';
 export type CurrentProductType = Pizza | Product | 'none';
 
 export class UiStore {
@@ -21,7 +21,7 @@ export class UiStore {
             currentModal: observable,
             currentProduct: observable,
             showPizzaModal: action,
-            showGeneralModal: action,
+            showSimpleModal: action,
             showCartModal: action,
             hideModal: action,
             setCurrentProduct: action
@@ -32,8 +32,8 @@ export class UiStore {
         this.currentModal = 'pizza';
     };
 
-    showGeneralModal() {
-        this.currentModal = 'general';
+    showSimpleModal() {
+        this.currentModal = 'simple';
     }
 
     showCartModal() {

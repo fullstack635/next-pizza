@@ -7,7 +7,7 @@ export default function Deserts(): JSX.Element {
     const state = useRootStore();
     return (
         <>
-            <Header>Десерты</Header>
+            <Header id="desert">Десерты</Header>
             <Section>
                 {pseudostore.deserts.map((item) => (
                     <Product key={item.id} onClick={() => state.UiStore.setCurrentProduct(item)}>
@@ -22,8 +22,8 @@ export default function Deserts(): JSX.Element {
                         </ProductInner>
                         <ProductFooter>
                             <InnerFooter>
-                                от
                                 <MoneyContainer>
+                                    от
                                     <MoneyValue> {item.price} </MoneyValue>
                                     <MoneyCurrency>₽</MoneyCurrency>
                                 </MoneyContainer>

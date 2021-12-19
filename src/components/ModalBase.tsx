@@ -1,11 +1,11 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react'
 import styled from 'styled-components'
-import { useRootStore } from '../../pages/_app';
-import { CurrentModalType } from '../../stores/UiStore';
-import CartModal from './Inner/CartModal';
-import GeneralModal from './Inner/GeneralModal';
-import PizzaModal from './Inner/PizzaModal'
+import { useRootStore } from '../pages/_app';
+import { CurrentModalType } from '../stores/UiStore';
+import CartModal from './Modals/CartModal/CartModal';
+import GeneralModal from './Modals/SimpleProductModal/GeneralModal';
+import PizzaModal from './Modals/PizzaModal/PizzaModal'
 
 
 
@@ -19,7 +19,7 @@ export const ModalBase = observer(() => {
                 return <PizzaModal />;
             case 'cart':
                 return <CartModal />;
-            case 'general':
+            case 'simple':
                 return <GeneralModal />;
             default:
                 return null;
@@ -36,10 +36,4 @@ export const ModalBase = observer(() => {
 const Base = styled.div`
     z-index: 1000;
     position: relative; 
-`
-
-const Example = styled.div`
-    width: 200px;
-    background-color: red;
-    height: 200px;
 `

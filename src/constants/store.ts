@@ -11,10 +11,23 @@ export interface Pizza {
     id: number;
     name: string;
     desc: string;
+    price: {
+        sm: string;
+        md: string;
+        xl: string;
+    }
+    weight: {
+        trad: {
+            sm: string;
+            md: string;
+            xl: string;
+        },
+        thin: {
+            md: string;
+            xl: string;
+        }
+    }
     pic: string;
-    pricesm: string;
-    pricemd: string;
-    pricexl: string;
 }
 
 export interface Product {
@@ -33,9 +46,22 @@ export const pseudostore: store = {
             id: 1,
             name: 'Сырная',
             desc: 'Моцарелла, сыры чеддер и пармезан, соус альфредо',
-            pricesm: '245',
-            pricemd: '479',
-            pricexl: '629',
+            price: {
+                sm: '245',
+                md: '479',
+                xl: '629',
+            },
+            weight: {
+                trad: {
+                    sm: '330',
+                    md: '490',
+                    xl: '650',
+                },
+                thin: {
+                    md: '380',
+                    xl: '540',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/2c71cd53e50746279f7aa0f59c7ec50f_292x292.jpeg',
         },
         {
@@ -43,9 +69,22 @@ export const pseudostore: store = {
             id: 2,
             name: 'Пепперони фреш',
             desc: 'Пикантная пепперони, увеличенная порция моцареллы, томаты, томатный соус',
-            pricesm: '245',
-            pricemd: '479',
-            pricexl: '629',
+            price: {
+                sm: '245',
+                md: '479',
+                xl: '629',
+            },
+            weight: {
+                trad: {
+                    sm: '410',
+                    md: '610',
+                    xl: '800',
+                },
+                thin: {
+                    md: '500',
+                    xl: '680',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/e9624d2bf1ae41598cd6635c0d3ed0f6_292x292.jpeg',
         },
         {
@@ -53,9 +92,22 @@ export const pseudostore: store = {
             id: 3,
             name: 'Песто',
             desc: 'Цыпленок, соус песто, кубики брынзы, томаты, моцарелла, соус альфредо',
-            pricesm: '495',
-            pricemd: '749',
-            pricexl: '879',
+            price: {
+                sm: '495',
+                md: '749',
+                xl: '879',
+            },
+            weight: {
+                trad: {
+                    sm: '420',
+                    md: '620',
+                    xl: '840',
+                },
+                thin: {
+                    md: '510',
+                    xl: '730',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/9bd4c76d4c2548c090ac6ae5a1eabae6_292x292.jpeg',
         },
         {
@@ -63,9 +115,22 @@ export const pseudostore: store = {
             id: 4,
             name: 'Ветчина и сыр',
             desc: 'Ветчина, моцарелла, соус альфредо',
-            pricesm: '315',
-            pricemd: '479',
-            pricexl: '629',
+            price: {
+                sm: '315',
+                md: '479',
+                xl: '629',
+            },
+            weight: {
+                trad: {
+                    sm: '330',
+                    md: '470',
+                    xl: '610',
+                },
+                thin: {
+                    md: '380',
+                    xl: '540',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/679924dc-e4fd-45fd-aceb-be139f265425.jpg',
         },
         {
@@ -73,9 +138,22 @@ export const pseudostore: store = {
             id: 5,
             name: 'Карбонара',
             desc: 'Бекон, сыры чеддер и пармезан, моцарелла, томаты, красный лук, чеснок, соус альфредо, итальянские травы',
-            pricesm: '495',
-            pricemd: '749',
-            pricexl: '879',
+            price: {
+                sm: '495',
+                md: '749',
+                xl: '879',
+            },
+            weight: {
+                trad: {
+                    sm: '420',
+                    md: '620',
+                    xl: '840',
+                },
+                thin: {
+                    md: '510',
+                    xl: '730',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/7a0fac09c2264f8e8928f205c7acb5cf_292x292.jpeg',
         },
         {
@@ -83,9 +161,22 @@ export const pseudostore: store = {
             id: 6,
             name: 'Двойной цыпленок',
             desc: 'Цыпленок, моцарелла, соус альфредо',
-            pricesm: '245',
-            pricemd: '479',
-            pricexl: '629',
+            price: {
+                sm: '245',
+                md: '479',
+                xl: '629',
+            },
+            weight: {
+                trad: {
+                    sm: '360',
+                    md: '520',
+                    xl: '710',
+                },
+                thin: {
+                    md: '430',
+                    xl: '610',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/dd4b719911d048e0b05c3e4219880e64_292x292.jpeg',
         },
         {
@@ -93,9 +184,22 @@ export const pseudostore: store = {
             id: 7,
             name: 'Додо Микс',
             desc: 'Бекон, цыпленок, ветчина, сыр блю чиз, сыры чеддер и пармезан, соус песто, кубики брынзы, томаты, красный лук, моцарелла, соус альфредо, чеснок, итальянские травы',
-            pricesm: '545',
-            pricemd: '849',
-            pricexl: '999',
+            price: {
+                sm: '545',
+                md: '849',
+                xl: '999',
+            },
+            weight: {
+                trad: {
+                    sm: '440',
+                    md: '670',
+                    xl: '880',
+                },
+                thin: {
+                    md: '580',
+                    xl: '850',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/ca0730a9b2d6457a899a41765555dc29_292x292.jpeg',
         },
         {
@@ -103,9 +207,22 @@ export const pseudostore: store = {
             id: 8,
             name: 'Пепперони',
             desc: 'Пикантная пепперони, увеличенная порция моцареллы, томатный соус',
-            pricesm: '435',
-            pricemd: '649',
-            pricexl: '849',
+            price: {
+                sm: '435',
+                md: '649',
+                xl: '849',
+            },
+            weight: {
+                trad: {
+                    sm: '390',
+                    md: '570',
+                    xl: '740',
+                },
+                thin: {
+                    md: '460',
+                    xl: '620',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/80af1cf2138447b4a9afc30df6af712c_292x292.jpeg',
         },
         {
@@ -113,9 +230,22 @@ export const pseudostore: store = {
             id: 9,
             name: 'Маргарита',
             desc: 'Увеличенная порция моцареллы, томаты, итальянские травы, томатный соус',
-            pricesm: '375',
-            pricemd: '549',
-            pricexl: '729',
+            price: {
+                sm: '375',
+                md: '549',
+                xl: '729',
+            },
+            weight: {
+                trad: {
+                    sm: '420',
+                    md: '620',
+                    xl: '820',
+                },
+                thin: {
+                    md: '520',
+                    xl: '710',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/6b61691078454b3793cdbfbbaa15cf58_292x292.jpeg',
         },
         {
@@ -123,9 +253,22 @@ export const pseudostore: store = {
             id: 10,
             name: 'Ветчина и грибы',
             desc: 'Ветчина, шампиньоны, увеличенная порция моцареллы, томатный соус',
-            pricesm: '375',
-            pricemd: '549',
-            pricexl: '729',
+            price: {
+                sm: '375',
+                md: '549',
+                xl: '729',
+            },
+            weight: {
+                trad: {
+                    sm: '410',
+                    md: '600',
+                    xl: '790',
+                },
+                thin: {
+                    md: '490',
+                    xl: '670',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/26fa2948b6c74113afb9d09a3262fc26_292x292.jpeg',
         },
         {
@@ -133,9 +276,22 @@ export const pseudostore: store = {
             id: 11,
             name: 'Гавайская',
             desc: 'Ветчина, ананасы, моцарелла, томатный соус',
-            pricesm: '435',
-            pricemd: '649',
-            pricexl: '849',
+            price: {
+                sm: '435',
+                md: '649',
+                xl: '849',
+            },
+            weight: {
+                trad: {
+                    sm: '430',
+                    md: '640',
+                    xl: '830',
+                },
+                thin: {
+                    md: '530',
+                    xl: '720',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/4749ca7de7e247daa69a685714f06aa3_292x292.jpeg',
         },
         {
@@ -143,9 +299,22 @@ export const pseudostore: store = {
             id: 12,
             name: 'Диабло',
             desc: 'Острая чоризо, острый перец халапеньо, соус барбекю, митболы, томаты, сладкий перец, красный лук, моцарелла, томатный соус',
-            pricesm: '495',
-            pricemd: '749',
-            pricexl: '879',
+            price: {
+                sm: '495',
+                md: '749',
+                xl: '879',
+            },
+            weight: {
+                trad: {
+                    sm: '490',
+                    md: '720',
+                    xl: '960',
+                },
+                thin: {
+                    md: '620',
+                    xl: '860',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/2c7a83e078b44156a7ad774389ed7713_292x292.jpeg',
         },
         {
@@ -153,9 +322,22 @@ export const pseudostore: store = {
             id: 13,
             name: 'Додо',
             desc: 'Бекон, митболы, пикантная пепперони, моцарелла, томаты, шампиньоны, сладкий перец, красный лук, чеснок, томатный соус',
-            pricesm: '495',
-            pricemd: '749',
-            pricexl: '879',
+            price: {
+                sm: '495',
+                md: '749',
+                xl: '879',
+            },
+            weight: {
+                trad: {
+                    sm: '500',
+                    md: '730',
+                    xl: '980',
+                },
+                thin: {
+                    md: '620',
+                    xl: '860',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/0d5410630b5c4f9eba6e8607423a587a_292x292.jpeg',
         },
         {
@@ -163,9 +345,22 @@ export const pseudostore: store = {
             id: 14,
             name: 'Сырный цыпленок',
             desc: 'Цыпленок, моцарелла, сыры чеддер и пармезан, сырный соус, томаты, соус альфредо, чеснок',
-            pricesm: '495',
-            pricemd: '749',
-            pricexl: '879',
+            price: {
+                sm: '495',
+                md: '749',
+                xl: '879',
+            },
+            weight: {
+                trad: {
+                    sm: '410',
+                    md: '610',
+                    xl: '850',
+                },
+                thin: {
+                    md: '510',
+                    xl: '750',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/36785e0eea834174bf358ac2682aea4d_292x292.jpeg',
         },
         {
@@ -173,9 +368,22 @@ export const pseudostore: store = {
             id: 15,
             name: 'Цыпленок ранч',
             desc: 'Цыпленок, ветчина, соус ранч, моцарелла, томаты, чеснок',
-            pricesm: '495',
-            pricemd: '749',
-            pricexl: '879',
+            price: {
+                sm: '495',
+                md: '749',
+                xl: '879',
+            },
+            weight: {
+                trad: {
+                    sm: '440',
+                    md: '660',
+                    xl: '910',
+                },
+                thin: {
+                    md: '550',
+                    xl: '790',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/0665a05313b1431588acec0ecfac0888_292x292.jpeg',
         },
         {
@@ -183,9 +391,22 @@ export const pseudostore: store = {
             id: 16,
             name: 'Мясная',
             desc: 'Цыпленок, ветчина, пикантная пепперони, острая чоризо, моцарелла, томатный соус',
-            pricesm: '495',
-            pricemd: '749',
-            pricexl: '879',
+            price: {
+                sm: '495',
+                md: '749',
+                xl: '879',
+            },
+            weight: {
+                trad: {
+                    sm: '410',
+                    md: '600',
+                    xl: '800',
+                },
+                thin: {
+                    md: '490',
+                    xl: '680',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/b10dd95184eb49d39a739d75b8cbfeaf_292x292.jpeg',
         },
         {
@@ -193,9 +414,22 @@ export const pseudostore: store = {
             id: 17,
             name: 'Аррива!',
             desc: 'Цыпленок, острая чоризо, соус бургер, сладкий перец, красный лук, томаты, моцарелла, соус ранч, чеснок',
-            pricesm: '435',
-            pricemd: '649',
-            pricexl: '849',
+            price: {
+                sm: '435',
+                md: '649',
+                xl: '849',
+            },
+            weight: {
+                trad: {
+                    sm: '390',
+                    md: '590',
+                    xl: '800',
+                },
+                thin: {
+                    md: '480',
+                    xl: '690',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/a2407468a4094e498d258f65bffa4c46_292x292.jpeg',
         },
         {
@@ -203,9 +437,22 @@ export const pseudostore: store = {
             id: 18,
             name: 'Четыре сезона',
             desc: 'Увеличенная порция моцареллы, ветчина, пикантная пепперони, кубики брынзы, томаты, шампиньоны, итальянские травы, томатный соус',
-            pricesm: '435',
-            pricemd: '649',
-            pricexl: '849',
+            price: {
+                sm: '435',
+                md: '649',
+                xl: '849',
+            },
+            weight: {
+                trad: {
+                    sm: '440',
+                    md: '640',
+                    xl: '860',
+                },
+                thin: {
+                    md: '530',
+                    xl: '740',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/78e7d6286b3c4b4b9882e9422b8bdf01_292x292.jpeg',
         },
         {
@@ -213,9 +460,22 @@ export const pseudostore: store = {
             id: 19,
             name: 'Чизбургер-пицца',
             desc: 'Мясной соус болоньезе, соус бургер, соленые огурчики, томаты, красный лук, моцарелла',
-            pricesm: '435',
-            pricemd: '649',
-            pricexl: '849',
+            price: {
+                sm: '435',
+                md: '649',
+                xl: '849',
+            },
+            weight: {
+                trad: {
+                    sm: '430',
+                    md: '660',
+                    xl: '900',
+                },
+                thin: {
+                    md: '560',
+                    xl: '790',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/40c9e7c8c01d4b29a816f2fd65d5bb60_292x292.jpeg',
         },
         {
@@ -223,9 +483,22 @@ export const pseudostore: store = {
             id: 20,
             name: 'Колбаски барбекю',
             desc: 'Острая чоризо, соус барбекю, томаты, красный лук, моцарелла, томатный соус',
-            pricesm: '435',
-            pricemd: '649',
-            pricexl: '849',
+            price: {
+                sm: '435',
+                md: '649',
+                xl: '849',
+            },
+            weight: {
+                trad: {
+                    sm: '330',
+                    md: '480',
+                    xl: '630',
+                },
+                thin: {
+                    md: '390',
+                    xl: '530',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/20734006e66d427fb2cbb8fbb595b21e_292x292.jpeg',
         },
         {
@@ -233,9 +506,22 @@ export const pseudostore: store = {
             id: 21,
             name: 'Фристайло',
             desc: 'Томаты, сладкий перец, красный лук, соус песто, митболы, моцарелла, томатный соус',
-            pricesm: '435',
-            pricemd: '649',
-            pricexl: '849',
+            price: {
+                sm: '435',
+                md: '649',
+                xl: '849',
+            },
+            weight: {
+                trad: {
+                    sm: '400',
+                    md: '590',
+                    xl: '780',
+                },
+                thin: {
+                    md: '500',
+                    xl: '680',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/67040d5b9c3a42e2a0deb93cca61f1ac_292x292.jpeg',
         },
         {
@@ -243,9 +529,22 @@ export const pseudostore: store = {
             id: 22,
             name: 'Овощи и грибы',
             desc: 'Шампиньоны, томаты, сладкий перец, красный лук, маслины, кубики брынзы, моцарелла, томатный соус, итальянские травы',
-            pricesm: '435',
-            pricemd: '649',
-            pricexl: '849',
+            price: {
+                sm: '435',
+                md: '649',
+                xl: '849',
+            },
+            weight: {
+                trad: {
+                    sm: '460',
+                    md: '680',
+                    xl: '920',
+                },
+                thin: {
+                    md: '570',
+                    xl: '800',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/cf22475052d34b41b7f00792aa73dca4_292x292.jpeg',
         },
         {
@@ -253,9 +552,22 @@ export const pseudostore: store = {
             id: 23,
             name: 'Четыре сыра',
             desc: 'Сыр блю чиз, сыры чеддер и пармезан, моцарелла, соус альфредо',
-            pricesm: '495',
-            pricemd: '749',
-            pricexl: '879',
+            price: {
+                sm: '495',
+                md: '749',
+                xl: '879',
+            },
+            weight: {
+                trad: {
+                    sm: '380',
+                    md: '550',
+                    xl: '740',
+                },
+                thin: {
+                    md: '450',
+                    xl: '630',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/1130292c8ffb4c34bb0a20619e65efb3_292x292.jpeg',
         },
         {
@@ -263,9 +575,22 @@ export const pseudostore: store = {
             id: 24,
             name: 'Цыпленок барбекю',
             desc: 'Цыпленок, бекон, соус барбекю, красный лук, моцарелла, томатный соус',
-            pricesm: '495',
-            pricemd: '749',
-            pricexl: '879',
+            price: {
+                sm: '495',
+                md: '749',
+                xl: '879',
+            },
+            weight: {
+                trad: {
+                    sm: '450',
+                    md: '660',
+                    xl: '880',
+                },
+                thin: {
+                    md: '550',
+                    xl: '770',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/6efc2093bc244329918b9b44dc960852_292x292.jpeg',
         },
         {
@@ -273,9 +598,22 @@ export const pseudostore: store = {
             id: 25,
             name: 'Двойная пепперони',
             desc: 'Двойная порция пикантной пепперони, увеличенная порция моцареллы, томатный соус',
-            pricesm: '495',
-            pricemd: '749',
-            pricexl: '879',
+            price: {
+                sm: '495',
+                md: '749',
+                xl: '879',
+            },
+            weight: {
+                trad: {
+                    sm: '420',
+                    md: '630',
+                    xl: '780',
+                },
+                thin: {
+                    md: '500',
+                    xl: '670',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/052c40e826264c6c8853cef189c8d34f_292x292.jpeg',
         },
         {
@@ -283,9 +621,22 @@ export const pseudostore: store = {
             id: 26,
             name: 'Супермясная',
             desc: 'Пикантная пепперони, цыпленок, острая чоризо, бекон, митболы, моцарелла, томатный соус',
-            pricesm: '545',
-            pricemd: '849',
-            pricexl: '999',
+            price: {
+                sm: '545',
+                md: '849',
+                xl: '999',
+            },
+            weight: {
+                trad: {
+                    sm: '440',
+                    md: '640',
+                    xl: '860',
+                },
+                thin: {
+                    md: '530',
+                    xl: '740',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/51025107de954c6e93034b2fd6931d22_292x292.jpeg',
         },
         {
@@ -293,9 +644,22 @@ export const pseudostore: store = {
             id: 27,
             name: 'Пицца-пирог',
             desc: 'Ананасы, брусника, сгущенное молоко',
-            pricesm: '375',
-            pricemd: '549',
-            pricexl: '729',
+            price: {
+                sm: '375',
+                md: '549',
+                xl: '729',
+            },
+            weight: {
+                trad: {
+                    sm: '340',
+                    md: '520',
+                    xl: '720',
+                },
+                thin: {
+                    md: '420',
+                    xl: '600',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/3327d3dd-1feb-443f-97b6-731fa8e64fac.jpg',
         },
         {
@@ -303,9 +667,22 @@ export const pseudostore: store = {
             id: 28,
             name: 'Нежный лосось',
             desc: 'Лосось, томаты, соус песто, моцарелла, соус альфредо',
-            pricesm: '595',
-            pricemd: '899',
-            pricexl: '1049',
+            price: {
+                sm: '595',
+                md: '899',
+                xl: '1049',
+            },
+            weight: {
+                trad: {
+                    sm: '430',
+                    md: '650',
+                    xl: '880',
+                },
+                thin: {
+                    md: '540',
+                    xl: '760',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/eb5e42dee16e4440873e3cb6b78c4a1f_292x292.jpeg',
         },
         {
@@ -313,9 +690,22 @@ export const pseudostore: store = {
             id: 29,
             name: 'Мексиканская',
             desc: 'Цыпленок, острый перец халапеньо, соус сальса, томаты, сладкий перец, красный лук, моцарелла, томатный соус',
-            pricesm: '495',
-            pricemd: '749',
-            pricexl: '879',
+            price: {
+                sm: '495',
+                md: '749',
+                xl: '879',
+            },
+            weight: {
+                trad: {
+                    sm: '480',
+                    md: '710',
+                    xl: '960',
+                },
+                thin: {
+                    md: '600',
+                    xl: '840',
+                }
+            },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/186dfa8511434e5eae09fc109b5a8498_292x292.jpeg',
         },
     ],

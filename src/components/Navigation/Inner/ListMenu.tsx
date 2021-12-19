@@ -9,22 +9,22 @@ export default function ListMenu(props: ListMenuProps): JSX.Element {
     return (
         <List sticky={props.sticky}>
             <ListItem>
-                <InnerLink>Пицца</InnerLink>
+                <InnerLink href="#pizza">Пицца</InnerLink>
             </ListItem>
             <ListItem>
-                <InnerLink>Комбо</InnerLink>
+                <InnerLink href="#combo">Комбо</InnerLink>
             </ListItem>
             <ListItem>
-                <InnerLink>Закуски</InnerLink>
+                <InnerLink href="#snack">Закуски</InnerLink>
             </ListItem>
             <ListItem>
-                <InnerLink>Десерты</InnerLink>
+                <InnerLink href="#desert">Десерты</InnerLink>
             </ListItem>
             <ListItem>
-                <InnerLink>Напитки</InnerLink>
+                <InnerLink href="#drink">Напитки</InnerLink>
             </ListItem>
             <ListItem>
-                <InnerLink>Другие товары</InnerLink>
+                <InnerLink href="#other">Другие товары</InnerLink>
             </ListItem>
             <ListItem>
                 <InnerLink>Акции</InnerLink>
