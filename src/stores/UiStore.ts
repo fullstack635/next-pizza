@@ -51,6 +51,17 @@ export class UiStore {
             case 'pizza':
                 this.showPizzaModal();
                 break;
+            case 'snack':
+                this.showSimpleModal();
+                break;
+            case 'drink':
+                this.showSimpleModal();
+                break;
+            case 'desert':
+                this.showSimpleModal();
+
+            case 'other':
+                this.showSimpleModal();
             default:
                 return;
         }

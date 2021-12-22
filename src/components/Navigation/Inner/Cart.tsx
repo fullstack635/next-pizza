@@ -10,7 +10,7 @@ const Cart = observer(() => {
             <CartButton>
                 Корзина
                 <Divider />
-                <CartQuantity>1</CartQuantity>
+                <CartQuantity>{state.CartStore.cart.length}</CartQuantity>
                 <CartSvg width="13" height="11" viewBox="0 0 13 11" fill="none">
                     <path d="M1 5.483h11m0 0L7.286 1M12 5.483L7.286 10" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
                 </CartSvg>

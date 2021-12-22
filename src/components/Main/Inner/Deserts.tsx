@@ -27,7 +27,7 @@ export default function Deserts(): JSX.Element {
                                     <MoneyValue> {item.price} </MoneyValue>
                                     <MoneyCurrency>₽</MoneyCurrency>
                                 </MoneyContainer>
-                                <Button>Выбрать</Button>
+                                <Button>В корзину</Button>
                             </InnerFooter>
                         </ProductFooter>
                     </Product>

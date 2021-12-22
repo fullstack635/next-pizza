@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import { useRootStore } from '../pages/_app';
 import { CurrentModalType } from '../stores/UiStore';
 import CartModal from './Modals/CartModal/CartModal';
-import GeneralModal from './Modals/SimpleProductModal/GeneralModal';
 import PizzaModal from './Modals/PizzaModal/PizzaModal'
+import SimpleProductModal from './Modals/SimpleProductModal/SimpleProductModal';
 
 
 
@@ -20,7 +20,7 @@ export const ModalBase = observer(() => {
             case 'cart':
                 return <CartModal />;
             case 'simple':
-                return <GeneralModal />;
+                return <SimpleProductModal />;
             default:
                 return null;
         }

@@ -142,6 +142,18 @@ const Inner = styled.div`
     display: flex;
     flex-flow: column nowrap;
     min-height: 100%;
+    &::before {
+        content: " ";
+        display: block;
+        width: 100%;
+        flex: 1 1 auto;
+    }
+    &::after {
+        content: " ";
+        display: block;
+        width: 100%;
+        flex: 1 1 auto;
+    }
 `
 
 const Modal = styled.div`

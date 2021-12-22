@@ -1,9 +1,10 @@
 interface store {
     pizza: Pizza[];
-    combo: Product[];
+    combo: Combo[];
     snacks: Product[];
     drinks: Product[];
     deserts: Product[];
+    other: Product[];
 }
 
 export interface Pizza {
@@ -31,7 +32,17 @@ export interface Pizza {
 }
 
 export interface Product {
-    type: 'snack' | 'desert' | 'drink' | 'combo'
+    type: 'snack' | 'desert' | 'drink' | 'other';
+    id: number;
+    name: string;
+    desc: string;
+    pic: string;
+    price: string;
+    weight: string;
+}
+
+export interface Combo {
+    type: 'combo';
     id: number;
     name: string;
     desc: string;
@@ -799,14 +810,16 @@ export const pseudostore: store = {
             desc: 'Легендарная горячая закуска с цыпленком, томатами, моцареллой, соусом ранч в тонкой пшеничной лепешке',
             price: '169',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/f901922426894718b3fdfc4158899b1f_292x292.jpeg',
+            weight: '200 г',
         },
         {
             type: 'snack',
             id: 41,
-            name: 'Острый Додстер 🌶️🌶️',
+            name: 'Острый Додстер',
             desc: 'Горячая закуска с цыпленком, перчиком халапеньо, солеными огурчиками, томатами, моцареллой и соусом барбекю в тонкой пшеничной лепешке',
             price: '169',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/14afcd3cc7094ee49a8b71953ef9f777_292x292.jpeg',
+            weight: '190 г',
         },
         {
             type: 'snack',
@@ -815,6 +828,7 @@ export const pseudostore: store = {
             desc: 'Горячая закуска с очень сырной начинкой. Моцарелла, пармезан, чеддер и соус ранч в тонкой пшеничной лепешке',
             price: '169',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/06cda7a8f9a64a2d92a3f87ae0412063_292x292.jpeg',
+            weight: '160 г',
         },
         {
             type: 'snack',
@@ -823,6 +837,7 @@ export const pseudostore: store = {
             desc: 'Горячая закуска с шампиньонами, моцареллой и соусом ранч в тонкой пшеничной лепешке',
             price: '169',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/4f21f83f43674d37818f1a26e0e43b65_292x292.jpeg',
+            weight: '160 г',
         },
         {
             type: 'snack',
@@ -831,14 +846,16 @@ export const pseudostore: store = {
             desc: 'Горячая закуска с острыми колбасками чоризо, цыпленком, перчиком халапеньо, моцареллой и соусом барбекю в тонкой пшеничной лепешке',
             price: '169',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/73c4ba899f164333b208df5439f3d27f_292x292.jpeg',
+            weight: '160 г',
         },
         {
             type: 'snack',
             id: 45,
-            name: 'Мясной Стартер 🌶️',
+            name: 'Мясной Стартер',
             desc: 'Горячая закуска с митболами, томатами, моцареллой и пикантным соусом бургер в тонкой пшеничной лепешке',
             price: '169',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/75a7802027924187b8b1b534bd23c56d_292x292.jpeg',
+            weight: '180 г',
         },
         {
             type: 'snack',
@@ -847,6 +864,7 @@ export const pseudostore: store = {
             desc: 'Горячий сытный обед из куриных крылышек со специями и ароматом копчения, картофеля из печи с итальянскими травами и соуса барбекю',
             price: '329',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/b583f7299d8c4e4fa313f65ef72e7449_292x292.jpeg',
+            weight: '290 г',
         },
         {
             type: 'snack',
@@ -855,6 +873,7 @@ export const pseudostore: store = {
             desc: 'Горячий сытный обед из нежных куриных кусочков, картофеля из печи с итальянскими травами и сырного соуса',
             price: '329',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/33bbbcfd262e4084a1e0671160da55bb_292x292.jpeg',
+            weight: '240 г',
         },
         {
             type: 'snack',
@@ -863,6 +882,7 @@ export const pseudostore: store = {
             desc: 'Ароматный запеченный картофель с итальянскими травами. Большая порция',
             price: '199',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/e3eeee00e41c4b2cb4f3f5f2fc0f504e_292x292.jpeg',
+            weight: '160 г',
         },
         {
             type: 'snack',
@@ -871,6 +891,7 @@ export const pseudostore: store = {
             desc: 'Куриные крылышки со специями и ароматом копчения. Большая порция',
             price: '369',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/80a7715ede17489db4010ce3c5741efa_292x292.jpeg',
+            weight: '340 г',
         },
         {
             type: 'snack',
@@ -879,6 +900,7 @@ export const pseudostore: store = {
             desc: 'Самая популярная паста с беконом, томатами, сырами чеддер, пармезан и моцарелла, соусом альфредо, итальянскими травами и чесноком',
             price: '299',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/289ceaa7249640b0b5a109b908b07cd6_292x292.jpeg',
+            weight: '320 г',
         },
         {
             type: 'snack',
@@ -887,6 +909,7 @@ export const pseudostore: store = {
             desc: 'Паста, цыпленок, шампиньоны, соус ранч, моцарелла, итальянские травы',
             price: '299',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/d7383d431e504fc4ba1a70bdb256c974_292x292.jpeg',
+            weight: '240 г',
         },
         {
             type: 'snack',
@@ -895,14 +918,16 @@ export const pseudostore: store = {
             desc: '',
             price: '30',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Snacks/ru-RU/f376fc2a-3574-4798-a4fe-475501b3a126.jpg',
+            weight: '1 шт',
         },
         {
             type: 'snack',
             id: 53,
             name: 'Картофельные оладьи, 8 шт',
             desc: 'Хрустящие снаружи и нежные внутри оладьи из картофеля в панировке, запекаются в печи',
-            price: '229',
+            price: '229 г',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/ba96144e178b4cc7a0ba213989b9ac92_292x292.jpeg',
+            weight: '190',
         },
         {
             type: 'snack',
@@ -911,6 +936,7 @@ export const pseudostore: store = {
             desc: 'Сочный цыпленок, хрустящие листья салата айсберг, томаты черри, сыры чеддер и пармезан, пшеничные гренки, итальянские травы, соус цезарь',
             price: '249',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/0e40a10713204a34991fd45d757f9b68_292x292.jpeg',
+            weight: '210 г',
         },
     ],
     deserts: [
@@ -920,7 +946,8 @@ export const pseudostore: store = {
             name: 'Молочный коктейль с печеньем Орео',
             desc: 'Напиток из молока и мороженого с добавлением дробленого печенья «Орео»',
             price: '189',
-            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/58900e1ab99b4e7b97de88bc96ad6ef3_292x292.jpeg'
+            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/58900e1ab99b4e7b97de88bc96ad6ef3_292x292.jpeg',
+            weight: '0,3 л',
         },
         {
             type: 'desert',
@@ -928,7 +955,8 @@ export const pseudostore: store = {
             name: 'Шоколадный молочный коктейль',
             desc: 'Сладкий напиток на основе молока и мороженого с фирменным какао',
             price: '179',
-            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/2bf20007a8e54800a10aeb0167205110_292x292.jpeg'
+            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/2bf20007a8e54800a10aeb0167205110_292x292.jpeg',
+            weight: '0,3 л',
         },
         {
             type: 'desert',
@@ -936,7 +964,8 @@ export const pseudostore: store = {
             name: 'Классический молочный коктейль',
             desc: 'Напиток из молока и мороженого',
             price: '179',
-            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/f08ef3e758024f378031e8f796480005_292x292.jpeg'
+            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/f08ef3e758024f378031e8f796480005_292x292.jpeg',
+            weight: '0,3 л',
         },
         {
             type: 'desert',
@@ -944,7 +973,8 @@ export const pseudostore: store = {
             name: 'Клубничный молочный коктейль',
             desc: 'Напиток из молока и мороженого с клубничным сиропом',
             price: '179',
-            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/c78250b130a04c308b6df6994ae0d3d4_292x292.jpeg'
+            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/c78250b130a04c308b6df6994ae0d3d4_292x292.jpeg',
+            weight: '0,3 л',
         },
         {
             type: 'desert',
@@ -952,7 +982,8 @@ export const pseudostore: store = {
             name: 'Вишневый пирог',
             desc: 'Это не просто десерт, а вишенка на торте! Творожно-песочное тесто с ягодами, заварным кремом и лепестками миндаля.',
             price: '149',
-            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/4c4be1059e5c4643887258b0ff49a557_292x292.jpeg'
+            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/4c4be1059e5c4643887258b0ff49a557_292x292.jpeg',
+            weight: '104 г',
         },
         {
             type: 'desert',
@@ -960,7 +991,8 @@ export const pseudostore: store = {
             name: 'Чизкейк Нью-Йорк',
             desc: 'Мы перепробовали тысячу десертов и наконец нашли любимца гостей — нежнейший творожный чизкейк.',
             price: '149',
-            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/5ffff27c9c2d488eb6cec35c27ebff9a_292x292.jpeg'
+            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/5ffff27c9c2d488eb6cec35c27ebff9a_292x292.jpeg',
+            weight: '100 г',
         },
         {
             type: 'desert',
@@ -968,7 +1000,8 @@ export const pseudostore: store = {
             name: 'Пончики Тройной шоколад и Клубничный',
             desc: 'Такие разные, но вместе. Один пончик с шоколадной начинкой и посыпкой, а другой с клубничной начинкой внутри и яркой посыпкой снаружи',
             price: '229',
-            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/3664b90773914229ace5ed1b32ae8324_292x292.jpeg'
+            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/3664b90773914229ace5ed1b32ae8324_292x292.jpeg',
+            weight: '139 г',
         },
         {
             type: 'desert',
@@ -976,7 +1009,8 @@ export const pseudostore: store = {
             name: '2 Клубничных пончика',
             desc: 'Самый яркий дуэт. Два пончика с клубничной начинкой и разноцветной посыпкой',
             price: '229',
-            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/e168f60e82014ac8947d7b8bf8a53eaf_292x292.jpeg'
+            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/e168f60e82014ac8947d7b8bf8a53eaf_292x292.jpeg',
+            weight: '140 г',
         },
         {
             type: 'desert',
@@ -984,7 +1018,8 @@ export const pseudostore: store = {
             name: '2 Пончика Тройной шоколад',
             desc: 'Этот пончик такой шоколадный, что хочется попробовать дважды. Два пончика с шоколадной начинкой и посыпкой.',
             price: '229',
-            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/1fdcd3f7405742dbbb02d006d8f75a2b_292x292.jpeg'
+            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/1fdcd3f7405742dbbb02d006d8f75a2b_292x292.jpeg',
+            weight: '138 г',
         },
         {
             type: 'desert',
@@ -992,7 +1027,8 @@ export const pseudostore: store = {
             name: '2 Кукиса Три шоколада',
             desc: 'С одной стороны, кукис — это хорошо, а с другой — два еще лучше. Сочетают в себе темный, бельгийский молочный и белый шоколад',
             price: '219',
-            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/884ba2a04ee241f597d5cce725f632f9_292x292.jpeg'
+            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/884ba2a04ee241f597d5cce725f632f9_292x292.jpeg',
+            weight: '150 г',
         },
         {
             type: 'desert',
@@ -1000,7 +1036,8 @@ export const pseudostore: store = {
             name: '2 Маффина Три шоколада',
             desc: 'Основное блюдо заканчивается, начинаются маффины с начинкой на шоколадной основе с кубиками белого и молочного шоколада',
             price: '219',
-            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/286c416400454ee4997b47981bc1fa1f_292x292.jpeg'
+            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/286c416400454ee4997b47981bc1fa1f_292x292.jpeg',
+            weight: '240 г',
         },
         {
             type: 'desert',
@@ -1008,7 +1045,8 @@ export const pseudostore: store = {
             name: 'Фонданы',
             desc: 'Четверо из пяти гостей говорят «Oh la la!», когда едят этот французский десерт с хрустящей корочкой и топленой шоколадной начинкой.',
             price: '319',
-            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/b2b30bbbddb74ee9ba926b49697fae01_292x292.jpeg'
+            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/b2b30bbbddb74ee9ba926b49697fae01_292x292.jpeg',
+            weight: '2 шт'
         },
         {
             type: 'desert',
@@ -1016,7 +1054,8 @@ export const pseudostore: store = {
             name: 'Бруслетики, 16 шт',
             desc: 'Может ли брусника быть сладкой, а сгущенное молоко кисленьким? Конечно, да. В бруслетиках закрутился яркий микс вкусов.',
             price: '225',
-            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/6eacb241458547c68a570d86954568aa_292x292.jpeg'
+            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/6eacb241458547c68a570d86954568aa_292x292.jpeg',
+            weight: '270 г',
         },
         {
             type: 'desert',
@@ -1024,7 +1063,8 @@ export const pseudostore: store = {
             name: 'Рулетики с корицей, 16 шт',
             desc: 'Десерт, одобренный нашими бабушками. Горячие сладкие рулетики с пряной корицей и сахаром.',
             price: '225',
-            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/ef501f49a9154be6be5a4faba03d9b76_292x292.jpeg'
+            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/ef501f49a9154be6be5a4faba03d9b76_292x292.jpeg',
+            weight: '220 г',
         },
         {
             type: 'desert',
@@ -1032,7 +1072,8 @@ export const pseudostore: store = {
             name: 'Сырники с малиновым вареньем',
             desc: 'Любимый десерт многих наших гостей — румяные сырники из печи. Такие нежные, в меру сладкие и напоминающие детство, 4 шт.',
             price: '319',
-            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/5f21db048a124b6db5462f0dd21df57f_292x292.jpeg'
+            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/5f21db048a124b6db5462f0dd21df57f_292x292.jpeg',
+            weight: '260 г',
         },
         {
             type: 'desert',
@@ -1040,7 +1081,8 @@ export const pseudostore: store = {
             name: 'Смородиновый молочный коктейль',
             desc: 'Напиток на основе молока и пломбира с замороженными ягодами черной смородины',
             price: '179',
-            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/1c812c42f84a40b59225d55b8936282f_292x292.jpeg'
+            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/1c812c42f84a40b59225d55b8936282f_292x292.jpeg',
+            weight: '0.3 л'
         },
     ],
     drinks: [
@@ -1048,7 +1090,8 @@ export const pseudostore: store = {
             type: 'drink',
             id: 71,
             name: 'Coca-Cola Zero',
-            desc: '0.5 л',
+            desc: '',
+            weight: '0.5 л',
             price: '119',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/646062734a454f6c9c8b8992846d478a_292x292.jpeg'
         },
@@ -1056,7 +1099,8 @@ export const pseudostore: store = {
             type: 'drink',
             id: 72,
             name: 'Coca-Cola',
-            desc: '0.5 л',
+            desc: '',
+            weight: '0.5 л',
             price: '119',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/c99ec0985f37456a8084928dfe8ed379_292x292.jpeg'
         },
@@ -1064,7 +1108,8 @@ export const pseudostore: store = {
             type: 'drink',
             id: 73,
             name: 'Coca-Cola Lime',
-            desc: '0.5 л',
+            desc: '',
+            weight: '0.5 л',
             price: '119',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/6fadad5d935948848a10c3046e55f9d5_292x292.jpeg'
         },
@@ -1072,7 +1117,8 @@ export const pseudostore: store = {
             type: 'drink',
             id: 74,
             name: 'Coca-Cola Vanilla',
-            desc: '0.5 л',
+            desc: '',
+            weight: '0.5 л',
             price: '119',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/4dde423fc98f4c01a3862917ef7bcb25_292x292.jpeg'
         },
@@ -1080,7 +1126,8 @@ export const pseudostore: store = {
             type: 'drink',
             id: 75,
             name: 'Sprite',
-            desc: '0.5 л',
+            desc: '',
+            weight: '0.5 л',
             price: '119',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/cbf4fc24b6784abe9b061f44411bebed_292x292.jpeg'
         },
@@ -1088,7 +1135,8 @@ export const pseudostore: store = {
             type: 'drink',
             id: 76,
             name: 'Fanta',
-            desc: '0.5 л',
+            desc: '',
+            weight: '0.5 л',
             price: '119',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/39ec292094ab4fa2b241acc85d1680c0_292x292.jpeg'
         },
@@ -1096,7 +1144,8 @@ export const pseudostore: store = {
             type: 'drink',
             id: 77,
             name: 'Schweppes bitter lemon',
-            desc: '0.33 л',
+            desc: '',
+            weight: '0.33 л',
             price: '89',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/8a299824e6fa4fbfaf1ef66c24721603_292x292.jpeg'
         },
@@ -1104,7 +1153,8 @@ export const pseudostore: store = {
             type: 'drink',
             id: 78,
             name: 'FuzeTea Черный с лимоном и лемонграссом',
-            desc: '0.5 л',
+            desc: '',
+            weight: '0.5 л',
             price: '119',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/33936f037f744ed181d79e43e1cab6a4_292x292.jpeg'
         },
@@ -1112,7 +1162,8 @@ export const pseudostore: store = {
             type: 'drink',
             id: 79,
             name: 'FuzeTea Зеленый с манго и ромашкой',
-            desc: '0.5 л',
+            desc: '',
+            weight: '0.5 л',
             price: '119',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/b168d90a451146379878297f41977eb4_292x292.jpeg'
         },
@@ -1120,7 +1171,8 @@ export const pseudostore: store = {
             type: 'drink',
             id: 80,
             name: 'FuzeTea Улун малина и мята',
-            desc: '0.5 л',
+            desc: '',
+            weight: '0.5 л',
             price: '119',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/9f657613f1344eef92d411898bc43109_292x292.jpeg'
         },
@@ -1128,7 +1180,8 @@ export const pseudostore: store = {
             type: 'drink',
             id: 81,
             name: 'BonAqua, негазированная ',
-            desc: '0.5 л',
+            desc: '',
+            weight: '0.5 л',
             price: '79',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/cf50b7be24e34a5880d5c35f8dd7ef4f_292x292.jpeg'
         },
@@ -1136,7 +1189,8 @@ export const pseudostore: store = {
             type: 'drink',
             id: 82,
             name: 'Апельсиновый сок Rich',
-            desc: '1 л',
+            desc: '',
+            weight: '1 л',
             price: '179',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/8f9732813db14164b2bae8cb6031d838_292x292.jpeg'
         },
@@ -1144,7 +1198,8 @@ export const pseudostore: store = {
             type: 'drink',
             id: 83,
             name: 'Яблочный сок Rich',
-            desc: '1 л',
+            desc: '',
+            weight: '1 л',
             price: '179',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/6ae400e88f154d289886cd15c01c1da1_292x292.jpeg'
         },
@@ -1152,7 +1207,8 @@ export const pseudostore: store = {
             type: 'drink',
             id: 84,
             name: 'Вишневый нектар Rich',
-            desc: '1 л',
+            desc: '',
+            weight: '1 л',
             price: '179',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/7515e819ea624b8784f418a67bdb33fe_292x292.jpeg'
         },
@@ -1160,7 +1216,8 @@ export const pseudostore: store = {
             type: 'drink',
             id: 85,
             name: 'Малиновый пунш',
-            desc: 'Согревающий напиток на основе пюре малины и черной смородины, 0,3 л',
+            desc: 'Согревающий напиток на основе пюре малины и черной смородины',
+            weight: '0.3 л',
             price: '125',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/62351c0aad164dff9ccc4d798c652eaa_292x292.jpeg'
         },
@@ -1168,7 +1225,8 @@ export const pseudostore: store = {
             type: 'drink',
             id: 86,
             name: 'Какао с маршмеллоу',
-            desc: 'Горячий какао с молоком, молочной пенкой и ванильным маршмеллоу #поворотныймомент, 0,3 л',
+            desc: 'Горячий какао с молоком, молочной пенкой и ванильным маршмеллоу #поворотныймомент',
+            weight: '0.3 л',
             price: '125',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/6598f883172948848216234fb2b47a38_292x292.jpeg'
         },
@@ -1176,7 +1234,8 @@ export const pseudostore: store = {
             type: 'drink',
             id: 87,
             name: 'Кофе Американо',
-            desc: 'Горячий напиток на основе эспрессо #поворотныймомент, 0,4 л',
+            desc: 'Горячий напиток на основе эспрессо #поворотныймомент',
+            weight: '0.4 л',
             price: '95',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/bc87655534d44acebcbbffab2ee0b822_292x292.jpeg'
         },
@@ -1185,6 +1244,7 @@ export const pseudostore: store = {
             id: 88,
             name: 'Кофе Ванильный капучино',
             desc: 'Горячий напиток на основе эспрессо со вспененным молоком и сиропом со вкусом ванили #поворотныймомент',
+            weight: '0.3 л',
             price: '155',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/d6bf3f54833241ca98dfe922a6469ad9_292x292.jpeg'
         },
@@ -1192,7 +1252,8 @@ export const pseudostore: store = {
             type: 'drink',
             id: 89,
             name: 'Кофе Карамельный капучино',
-            desc: 'Горячий напиток на основе эспрессо со вспененным молоком и сиропом со вкусом карамели #поворотныймомент, 0,3 л',
+            desc: 'Горячий напиток на основе эспрессо со вспененным молоком и сиропом со вкусом карамели #поворотныймомент',
+            weight: '0.3 л',
             price: '155',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/e0f4c057497a4189b9ef3260bcdaadd7_292x292.jpeg'
         },
@@ -1200,7 +1261,8 @@ export const pseudostore: store = {
             type: 'drink',
             id: 90,
             name: 'Кофе Капучино',
-            desc: 'Горячий напиток на основе эспрессо со вспененным молоком #поворотныймомент, 0,4 л',
+            desc: 'Горячий напиток на основе эспрессо со вспененным молоком #поворотныймомент',
+            weight: '0.4 л',
             price: '145',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/5972d1b78fec44b4a3fae17019c269cf_292x292.jpeg'
         },
@@ -1208,7 +1270,8 @@ export const pseudostore: store = {
             type: 'drink',
             id: 91,
             name: 'Кофе Ореховый латте',
-            desc: 'Горячий напиток на основе эспрессо с увеличенной порцией молока и сиропом со вкусом фундука #поворотныймомент, 0,3 л',
+            desc: 'Горячий напиток на основе эспрессо с увеличенной порцией молока и сиропом со вкусом фундука #поворотныймомент',
+            weight: '0.3 л',
             price: '155',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/17a0ea9b6f03429abf525d2d3fe6ab74_292x292.jpeg'
         },
@@ -1216,7 +1279,8 @@ export const pseudostore: store = {
             type: 'drink',
             id: 92,
             name: 'Кофе Латте',
-            desc: 'Горячий напиток на основе эспрессо с увеличенной порцией молока #поворотныймомент, 0,4 л',
+            desc: 'Горячий напиток на основе эспрессо с увеличенной порцией молока #поворотныймомент',
+            weight: '0.4 л',
             price: '145',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/870e47d7c0c6409eb3208d1e1f39d7fc_292x292.jpeg'
         },
@@ -1224,7 +1288,8 @@ export const pseudostore: store = {
             type: 'drink',
             id: 93,
             name: 'Морс Клюква',
-            desc: '0,45 л',
+            desc: '',
+            weight: '0,45 л',
             price: '119',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/98e21a144e0b42428f7cacf157d516d1_292x292.jpeg'
         },
@@ -1232,7 +1297,8 @@ export const pseudostore: store = {
             type: 'drink',
             id: 94,
             name: 'Морс Черная смородина',
-            desc: '0,45 л',
+            desc: '',
+            weight: '0,45 л',
             price: '119',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Drinks/ru-RU/412d499c-1bf7-4a9a-9249-000ae686d301.jpg'
         },
@@ -1240,7 +1306,8 @@ export const pseudostore: store = {
             type: 'drink',
             id: 95,
             name: 'Морс Вишня',
-            desc: '0,45 л',
+            desc: '',
+            weight: '0,45 л',
             price: '119',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Drinks/ru-RU/202f25da-7b3a-4a07-b77f-bc36f8194a16.jpg'
         },
@@ -1249,8 +1316,56 @@ export const pseudostore: store = {
             id: 96,
             name: 'Пунш Спайси Оранж',
             desc: 'Согревающий пряный напиток с мякотью апельсина, соком лайма, имбирем, корицей, бадьяном, кориандром и гвоздикой #поворотныймомент',
+            weight: '0.3 л',
             price: '125',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/66de12cc104549a5ba3420c5a0052c77_292x292.jpeg'
+        },
+    ],
+    other: [
+        {
+            type: 'other',
+            id: 97,
+            name: 'Кофе в зернах, 250 г',
+            desc: '100% арабика с нотками карамели, шоколада и грецкого ореха. Обжарка темнее среднего. Выращен в Бразилии',
+            weight: '0.25 кг',
+            price: '299',
+            pic: 'https://cdn.dodopizza.net/static/Img/Products/d86742653b744c1bb47eaa5a38d4087a_292x292.jpeg'
+        },
+        {
+            type: 'other',
+            id: 98,
+            name: 'Коллекционный магнит «Додо Пиццы»',
+            desc: 'Один из серии сувенирных магнитов Додо Пиццы.',
+            weight: '1 шт',
+            price: '10',
+            pic: 'https://cdn.dodopizza.net/static/Img/Products/Goods/ru-RU/92436e5f-9555-429d-9b26-52732762154e.jpg'
+        },
+        {
+            type: 'other',
+            id: 99,
+            name: 'Додо Раскраска',
+            desc: '',
+            weight: '1 шт',
+            price: '10',
+            pic: 'https://cdn.dodopizza.net/static/Img/Products/c60dfc4a6bbb4ac4a6f4690f3036994b_292x292.jpeg'
+        },
+        {
+            type: 'other',
+            id: 99,
+            name: 'Додо Клюв',
+            desc: '',
+            weight: '1 шт',
+            price: '10',
+            pic: 'https://cdn.dodopizza.net/static/Img/Products/Goods/ru-RU/de3d1762-5f99-42d9-b3a7-ec312d0840a0.jpg'
+        },
+        {
+            type: 'other',
+            id: 100,
+            name: 'Додо колпак',
+            desc: '',
+            weight: '1 шт',
+            price: '10',
+            pic: 'https://cdn.dodopizza.net/static/Img/Products/Goods/ru-RU/6907f6d5-a1bd-4954-913d-3caf6a79e448.jpg'
         },
     ]
 }
