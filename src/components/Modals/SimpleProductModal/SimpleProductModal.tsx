@@ -17,16 +17,16 @@ const SimpleProductModal = observer(() => {
                     </CloseContainer>
                     <ProductCard>
                         <Picture>
-                            <Img src={state.UiStore.currentProduct.pic}></Img>
+                            <Img src={state.UiStore.currentProduct?.pic}></Img>
                         </Picture>
                         <Main>
-                            <Header>{state.UiStore.currentProduct.name}</Header>
-                            <Weight>{state.UiStore.currentProduct.weight}</Weight>
-                            <Description>{state.UiStore.currentProduct.desc}</Description>
+                            <Header>{state.UiStore.currentProduct?.name}</Header>
+                            <Weight>{state.UiStore.currentProduct?.weight}</Weight>
+                            <Description>{state.UiStore.currentProduct?.desc}</Description>
                             <Button>
                                 Добавить в корзину за
                                 <MoneyContainer>
-                                    <Value>{state.UiStore.currentProduct.price}</Value>
+                                    <Value>{state.UiStore.currentProduct?.price}</Value>
                                     <Currency> ₽</Currency>
                                 </MoneyContainer>
                             </Button>

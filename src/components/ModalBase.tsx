@@ -21,6 +21,8 @@ export const ModalBase = observer(() => {
                 return <CartModal />;
             case 'simple':
                 return <SimpleProductModal />;
+            case undefined:
+                return null;
             default:
                 return null;
         }

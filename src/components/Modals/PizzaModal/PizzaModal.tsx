@@ -1,16 +1,32 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react'
 import styled, { DefaultStyledComponent } from 'styled-components'
+import { Pizza } from '../../../constants/store';
+import { ICartPizza, PizzaDough, PizzaSize } from '../../../model/CartModel';
 import { useRootStore } from '../../../pages/_app';
 
 const PizzaModal = observer(() => {
 
-    const [size, setSize] = React.useState('md');
-    const [dough, setDough] = React.useState('trad');
+    const [size, setSize] = React.useState<PizzaSize>('md');
+    const [dough, setDough] = React.useState<PizzaDough>('trad');
 
     const state = useRootStore();
 
-    const StyleSizeSwitch = (size: string) => {
+    const Pizza = (state.UiStore.currentProduct as Pizza);
+
+    const PizzaToCart = (): ICartPizza => {
+        return {
+            id: Pizza.id,
+            pic: Pizza.pic,
+            quantity: 1,
+            size: size,
+            dough: dough,
+            name: Pizza.name,
+            price: Pizza.price[size]
+        };
+    };
+
+    const StyleSizeSwitch = (size: PizzaSize) => {
         switch (size) {
             case 'sm':
                 return 'translateX(0%)';
@@ -23,7 +39,7 @@ const PizzaModal = observer(() => {
         }
     }
 
-    const SizeSwitch = (size: string) => {
+    const SizeSwitch = (size: PizzaSize) => {
         switch (size) {
             case 'sm':
                 return '25 см';
@@ -50,7 +66,7 @@ const PizzaModal = observer(() => {
                         <LeftColumn>
                             <ImageContainer>
                                 <ImageOuter>
-                                    <img src={state.UiStore.currentProduct.pic}></img>
+                                    <img src={state.UiStore.currentProduct?.pic}></img>
                                 </ImageOuter>
                             </ImageContainer>
                             <SvgContainer>
@@ -68,13 +84,13 @@ const PizzaModal = observer(() => {
                                         <ContainerOuter>
                                             <ContainerInner>
                                                 <FirstRow>
-                                                    <PizzaTitle>{state.UiStore.currentProduct.name}</PizzaTitle>
+                                                    <PizzaTitle>{state.UiStore.currentProduct?.name}</PizzaTitle>
                                                 </FirstRow>
                                                 <SecondRow>
-                                                    <RowInfo>{SizeSwitch(size)}, {dough === 'trad' ? 'традиционное тесто' : 'тонкое тесто'}, {state.UiStore.currentProduct.weight[dough][size]} г</RowInfo>
+                                                    <RowInfo>{SizeSwitch(size)}, {dough === 'trad' ? 'традиционное тесто' : 'тонкое тесто'}, {(state.UiStore.currentProduct as Pizza)?.weight[dough][size as Exclude<PizzaSize, 'sm'>]} г</RowInfo>
                                                 </SecondRow>
                                                 <ThirdRow>
-                                                    <PizzaDescription>{state.UiStore.currentProduct.desc}</PizzaDescription>
+                                                    <PizzaDescription>{state.UiStore.currentProduct?.desc}</PizzaDescription>
                                                 </ThirdRow>
                                                 <FourthRow>
                                                     <SizeTumblerContainer>
@@ -100,10 +116,10 @@ const PizzaModal = observer(() => {
                                 </ScrollBoxOuter>
                             </Main>
                             <Footer>
-                                <Button>
+                                <Button onClick={() => state.CartStore.addPizza(PizzaToCart())}>
                                     Добавить в корзину за
                                     <MoneyContainer>
-                                        <Price> {state.UiStore.currentProduct.price[size]} </Price>
+                                        <Price> {(state.UiStore.currentProduct as Pizza)?.price[size]} </Price>
                                         <Currency>₽</Currency>
                                     </MoneyContainer>
                                 </Button>

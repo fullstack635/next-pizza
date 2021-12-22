@@ -1,3 +1,5 @@
+import { PizzaDough, PizzaSize } from "../model/CartModel";
+
 interface store {
     pizza: Pizza[];
     combo: Combo[];
@@ -13,19 +15,14 @@ export interface Pizza {
     name: string;
     desc: string;
     price: {
-        sm: string;
-        md: string;
-        xl: string;
+        [key in PizzaSize]: string;
     }
     weight: {
         trad: {
-            sm: string;
-            md: string;
-            xl: string;
-        },
+            [key in PizzaSize]: string;
+        };
         thin: {
-            md: string;
-            xl: string;
+            [key in Extract<PizzaSize, 'md' | 'xl'>]: string;
         }
     }
     pic: string;
@@ -1351,7 +1348,7 @@ export const pseudostore: store = {
         },
         {
             type: 'other',
-            id: 99,
+            id: 100,
             name: 'Додо Клюв',
             desc: '',
             weight: '1 шт',
@@ -1360,7 +1357,7 @@ export const pseudostore: store = {
         },
         {
             type: 'other',
-            id: 100,
+            id: 101,
             name: 'Додо колпак',
             desc: '',
             weight: '1 шт',
