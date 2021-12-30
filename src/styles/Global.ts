@@ -1,6 +1,11 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, DefaultStyledComponent } from "styled-components";
+import { CurrentModalType } from "../stores/UiStore";
 
-export const Global = createGlobalStyle`
+interface GlobalProps extends DefaultStyledComponent {
+    lockscroll?: CurrentModalType;
+}
+
+export const Global = createGlobalStyle<GlobalProps>`
 html,
 body {
     height: 100%;
@@ -9,7 +14,8 @@ body {
     background-color: ${(props) => props.theme.palette.background.default};
     font-family: ${(props) => props.theme.fonts.main};
     scroll-behavior: smooth;
-    background: ${(props) => props.theme.palette.background.default} none repeat scroll 0% 0%
+    background: ${(props) => props.theme.palette.background.default} none repeat scroll 0% 0%;
+    overflow-y: ${(props) => props.lockscroll !== undefined ? 'hidden' : 'unset'};
 }
 
 * {

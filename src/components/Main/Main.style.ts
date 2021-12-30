@@ -39,11 +39,14 @@ export const ProductPicture = styled.picture`
     width: 100%;
     border-radius: 12px;
     top: 0px;
-    transition: top 150ms ease-out 0s;
+    transition: ease-in-out 150ms;
     user-select: none;
     image-rendering: auto;
     display: flex;
     flex-flow: column nowrap;
+    &:hover {
+        transform: translateY(4px);
+    }
 `
 export const ProductImage = styled.img`
     width: 95%;

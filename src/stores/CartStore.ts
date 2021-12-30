@@ -21,8 +21,17 @@ export class CartStore {
             increaseQuantity: action,
             decreaseQuantity: action,
             removeItem: action,
+            GoodsAmount: computed,
         });
     };
+
+    get GoodsAmount() {
+        let amount = 0;
+        for (let i = 0; i < this.cart.length; i++) {
+            amount += this.cart[i].quantity;
+        }
+        return amount;
+    }
 
     addPizza(pizza: ICartPizza): void {
         const cartPizza = this.cart.find((item) => isPizza(item) && item.id === pizza.id && item.dough === pizza.dough && item.size === pizza.size);

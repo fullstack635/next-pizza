@@ -1,15 +1,15 @@
 import { AppProps } from 'next/app';
 import React from 'react'
 import { ThemeProvider } from 'styled-components';
+import Workaround from '../components/Workaround';
 import { RootStoreProvider } from '../stores/rootStoreProvider';
-import { Global } from '../styles/Global';
 import { LightTheme } from '../styles/LightTheme';
 
 function App({ Component, pageProps }: AppProps) {
     return (
         <RootStoreProvider>
             <ThemeProvider theme={LightTheme}>
-                <Global />
+                <Workaround />
                 <Component {...pageProps} />
             </ThemeProvider>
         </RootStoreProvider>

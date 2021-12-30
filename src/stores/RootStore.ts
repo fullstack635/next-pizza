@@ -6,10 +6,9 @@ export class RootStore {
     UiStore: UiStore;
 
     constructor() {
-        this.CartStore = new CartStore(this)
-        this.UiStore = new UiStore(this)
-
-        this.CartStore.init()
-        this.UiStore.init()
+        this.CartStore = new CartStore(this);
+        this.UiStore = new UiStore(this);
+        this.CartStore.init();
+        this.UiStore.init();
     }
 }

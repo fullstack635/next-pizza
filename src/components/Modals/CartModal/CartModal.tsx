@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react'
 import styled from 'styled-components'
-import { ICart, ICartPizza, isPizza, PizzaDough, PizzaSize } from '../../../model/CartModel';
+import { ICartPizza, isPizza, PizzaDough, PizzaSize } from '../../../model/CartModel';
 import { useRootStore } from '../../../stores/rootStoreProvider';
 
 
@@ -30,7 +30,7 @@ const CartModal = observer(() => {
     }
 
     const GoodsSwitch = () => {
-        const s = state.CartStore.cart.length;
+        const s = state.CartStore.GoodsAmount;
         const n1 = 'товаров';
         const n2 = 'товар';
         const n3 = 'товара';
@@ -67,63 +67,65 @@ const CartModal = observer(() => {
                 </CloseButton>
                 <OuterContainer>
                     <InnerContainer>
-                        <MainContainer>
-                            <Main>
-                                <HeaderContainer>
-                                    <Header>{state.CartStore.cart.length} {GoodsSwitch()} на {state.CartStore.getTotalPrice}</Header>
-                                </HeaderContainer>
-                                <CartList>
-                                    {state.CartStore.cart.map((item, index) => (
-                                        <CartItem key={index}>
-                                            <CartItemBack />
-                                            <ItemMain>
-                                                <ItemPicture>
-                                                    <ItemIMG src={item.pic} />
-                                                </ItemPicture>
-                                                <ItemInfo>
-                                                    <ItemName>{item.name}</ItemName>
-                                                    <ItemAdditionalInfo>{isPizza(item) ? `${CartInfoToHuman(item)}` : item.weight}</ItemAdditionalInfo>
-                                                </ItemInfo>
-                                            </ItemMain>
-                                            <ItemFooter>
-                                                <ItemPriceContainer>
-                                                    <ItemPrice>{parseInt(item.price) * item.quantity} ₽</ItemPrice>
-                                                </ItemPriceContainer>
-                                                <QuantityContainerOuter>
-                                                    <QuantityContainerInner>
-                                                        <Decrease onClick={() => state.CartStore.decreaseQuantity(item)}>
-                                                            <svg width="10" height="10" viewBox="0 0 10 10"><rect fill="#454B54" y="4" width="10" height="2" rx="1"></rect></svg>
-                                                        </Decrease>
-                                                        <Quantity>
-                                                            {item.quantity}
-                                                        </Quantity>
-                                                        <Increase onClick={() => state.CartStore.increaseQuantity(item)}>
-                                                            <svg width="10" height="10" viewBox="0 0 10 10"><g fill="#454B54"><rect x="4" width="2" height="10" ry="1"></rect><rect y="4" width="10" height="2" rx="1"></rect></g></svg>
-                                                        </Increase>
-                                                    </QuantityContainerInner>
-                                                </QuantityContainerOuter>
-                                            </ItemFooter>
-                                        </CartItem>
-                                    ))}
-                                </CartList>
-                                <CartFooter>
-                                    <PromoCode>
-                                        <span></span>
-                                    </PromoCode>
-                                    <ConfirmOrder>
-                                        <SubTotal>
+                        {state.CartStore.GoodsAmount > 0 ?
+                            <MainContainer>
+                                <Main>
+                                    <HeaderContainer>
+                                        <Header>{state.CartStore.GoodsAmount} {GoodsSwitch()} на {state.CartStore.getTotalPrice}</Header>
+                                    </HeaderContainer>
+                                    <CartList>
+                                        {state.CartStore.cart.map((item, index) => (
+                                            <CartItem key={index}>
+                                                <CartItemBack />
+                                                <ItemMain>
+                                                    <ItemPicture>
+                                                        <ItemIMG src={item.pic} />
+                                                    </ItemPicture>
+                                                    <ItemInfo>
+                                                        <ItemName>{item.name}</ItemName>
+                                                        <ItemAdditionalInfo>{isPizza(item) ? `${CartInfoToHuman(item)}` : item.weight}</ItemAdditionalInfo>
+                                                    </ItemInfo>
+                                                </ItemMain>
+                                                <ItemFooter>
+                                                    <ItemPriceContainer>
+                                                        <ItemPrice>{parseInt(item.price) * item.quantity} ₽</ItemPrice>
+                                                    </ItemPriceContainer>
+                                                    <QuantityContainerOuter>
+                                                        <QuantityContainerInner>
+                                                            <Decrease onClick={() => state.CartStore.decreaseQuantity(item)}>
+                                                                <svg width="10" height="10" viewBox="0 0 10 10"><rect fill="#454B54" y="4" width="10" height="2" rx="1"></rect></svg>
+                                                            </Decrease>
+                                                            <Quantity>
+                                                                {item.quantity}
+                                                            </Quantity>
+                                                            <Increase onClick={() => state.CartStore.increaseQuantity(item)}>
+                                                                <svg width="10" height="10" viewBox="0 0 10 10"><g fill="#454B54"><rect x="4" width="2" height="10" ry="1"></rect><rect y="4" width="10" height="2" rx="1"></rect></g></svg>
+                                                            </Increase>
+                                                        </QuantityContainerInner>
+                                                    </QuantityContainerOuter>
+                                                </ItemFooter>
+                                            </CartItem>
+                                        ))}
+                                    </CartList>
+                                    <CartFooter>
+                                        <PromoCode>
+                                            <span></span>
+                                        </PromoCode>
+                                        <ConfirmOrder>
+                                            <SubTotal>
 
-                                        </SubTotal>
-                                        <Info>
+                                            </SubTotal>
+                                            <Info>
 
-                                        </Info>
-                                        <CheckoutButton>
-                                            К оформлению заказа
-                                        </CheckoutButton>
-                                    </ConfirmOrder>
-                                </CartFooter>
-                            </Main>
-                        </MainContainer>
+                                            </Info>
+                                            <CheckoutButton>
+                                                К оформлению заказа
+                                            </CheckoutButton>
+                                        </ConfirmOrder>
+                                    </CartFooter>
+                                </Main>
+                            </MainContainer>
+                            : null}
                     </InnerContainer>
                 </OuterContainer>
             </Base>
@@ -408,6 +410,8 @@ const PromoCode = styled.section`
 `
 
 const ConfirmOrder = styled.section`
+    position: absolute;
+    bottom: 0;  
     width: 100%;
     color: rgb(0, 0, 0);
     font-style: normal;
