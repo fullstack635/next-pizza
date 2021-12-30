@@ -1,7 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react'
 import styled from 'styled-components'
-import { useRootStore } from '../pages/_app';
+import { useRootStore } from '../stores/rootStoreProvider';
 import { CurrentModalType } from '../stores/UiStore';
 import CartModal from './Modals/CartModal/CartModal';
 import PizzaModal from './Modals/PizzaModal/PizzaModal'

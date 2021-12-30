@@ -17,9 +17,7 @@ export class CartStore {
             cart: observable,
             addPizza: action,
             addSimple: action,
-            getTotalPrice: observable,
-            getItemPrice: observable,
-            getItemQuantity: observable,
+            getTotalPrice: computed,
             increaseQuantity: action,
             decreaseQuantity: action,
             removeItem: action,
@@ -27,40 +25,34 @@ export class CartStore {
     };
 
     addPizza(pizza: ICartPizza): void {
+        const cartPizza = this.cart.find((item) => isPizza(item) && item.id === pizza.id && item.dough === pizza.dough && item.size === pizza.size);
+        if (cartPizza) {
+            cartPizza.quantity++;
+            return
+        }
         this.cart.push(pizza);
         return
     };
 
     addSimple(product: ICartGeneral): void {
+        const cartProduct = this.cart.find((item) => item.id === product.id);
+        if (cartProduct) {
+            cartProduct.quantity++
+            return
+        }
         this.cart.push(product);
         return
     };
 
-    getTotalPrice(): number {
+    get getTotalPrice(): number {
         if (this.cart.length > 0) {
             return this.cart.map((item) => parseInt(item.price) * item.quantity).reduce((a, b) => a + b);
         }
         else return 0;
     };
 
-    getItemPrice(id: number): number {
-        const item = this.cart.find((item) => item.id === id)
-        if (item) {
-            return parseInt(item.price) * item.quantity;
-        }
-        return 0
-    }
-
-    getItemQuantity(id: number): number {
-        const item = this.cart.find((item) => item.id === id);
-        if (item) {
-            return item.quantity;
-        }
-        return 0;
-    }
-
-    increaseQuantity(id: number): void {
-        const item = this.cart.find((item) => item.id === id);
+    increaseQuantity(product: ICart): void {
+        const item = this.cart.find((item) => item === product);
         if (item) {
             item.quantity++;
             return
@@ -68,11 +60,11 @@ export class CartStore {
         return
     }
 
-    decreaseQuantity(id: number): void {
-        const item = this.cart.find((item) => item.id === id);
+    decreaseQuantity(product: ICart): void {
+        const item = this.cart.find((item) => item === product);
         if (item) {
             if (item.quantity - 1 === 0) {
-                this.removeItem(id);
+                this.removeItem(product);
                 return
             };
             item.quantity--;
@@ -81,28 +73,10 @@ export class CartStore {
         return
     }
 
-    removeItem(id: number): void {
-        const item = this.cart.find((item) => item.id === id);
+    removeItem(product: ICart): void {
+        const item = this.cart.find((item) => item === product);
         if (item) {
-            this.cart = this.cart.filter((item) => item.id !== id);
-            return
-        }
-        return
-    }
-
-    removePizza(id: number, dough: PizzaDough, size: PizzaSize): void {
-        let item = this.cart.find((item) => item.id === id);
-        if (item) {
-            if (isPizza(item)) {
-                item = this.cart.find((item) => item)
-            }
-        }
-    }
-
-    removeSimple(id: number): void {
-        const item = this.cart.find((item) => item.id === id);
-        if (item) {
-            this.cart = this.cart.filter((item) => item.id !== id);
+            this.cart = this.cart.filter((item) => item != product);
             return
         }
         return

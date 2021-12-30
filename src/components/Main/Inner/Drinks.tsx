@@ -1,6 +1,6 @@
 import React from 'react'
 import { pseudostore } from '../../../constants/store'
-import { useRootStore } from '../../../pages/_app';
+import { useRootStore } from '../../../stores/rootStoreProvider';
 import { Button, Header, InnerFooter, MoneyContainer, MoneyCurrency, MoneyValue, Product, ProductFooter, ProductImage, ProductInner, ProductName, ProductPicture, Section } from '../Main.style'
 
 export default function Drinks() {

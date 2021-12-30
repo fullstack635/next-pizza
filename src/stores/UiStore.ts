@@ -1,9 +1,9 @@
 import { action, makeObservable, observable } from "mobx"
-import { Pizza, Product } from "../constants/store";
+import { Combo, Pizza, Product } from "../constants/store";
 import { RootStore } from "./RootStore";
 
 export type CurrentModalType = 'cart' | 'pizza' | 'simple' | 'combo' | undefined;
-export type CurrentProductType = Pizza | Product | undefined;
+export type CurrentProductType = Pizza | Product | Combo | undefined;
 
 export class UiStore {
     root: RootStore;
@@ -45,25 +45,28 @@ export class UiStore {
         this.currentProduct = undefined;
     }
 
-    setCurrentProduct(product: Pizza | Product) {
+    setCurrentProduct(product: CurrentProductType) {
         this.currentProduct = product;
-        switch (product.type) {
-            case 'pizza':
-                this.showPizzaModal();
-                break;
-            case 'snack':
-                this.showSimpleModal();
-                break;
-            case 'drink':
-                this.showSimpleModal();
-                break;
-            case 'desert':
-                this.showSimpleModal();
-                break;
-            case 'other':
-                this.showSimpleModal();
-            default:
-                return;
+        if (product) {
+            switch (product.type) {
+                case 'pizza':
+                    this.showPizzaModal();
+                    break;
+                case 'snack':
+                    this.showSimpleModal();
+                    break;
+                case 'drink':
+                    this.showSimpleModal();
+                    break;
+                case 'desert':
+                    this.showSimpleModal();
+                    break;
+                case 'other':
+                    this.showSimpleModal();
+                default:
+                    return;
+            }
         }
+        return
     }
 }

@@ -1,7 +1,8 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react'
 import styled from 'styled-components'
-import { useRootStore } from '../../../pages/_app'
+import { useRootStore } from '../../../stores/rootStoreProvider';
+
 
 const Cart = observer(() => {
     const state = useRootStore();

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Header, Product, ProductFooter, ProductPicture, ProductInner, ProductName, Section, ProductImage, InnerFooter, MoneyContainer, MoneyCurrency, MoneyValue, Button } from '../Main.style'
 import { pseudostore } from '../../../constants/store'
-import { useRootStore } from '../../../pages/_app'
+import { useRootStore } from '../../../stores/rootStoreProvider';
+
 
 export default function Pizza(): JSX.Element {
     const state = useRootStore();

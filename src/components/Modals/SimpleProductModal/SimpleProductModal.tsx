@@ -1,10 +1,31 @@
 import { observer } from 'mobx-react-lite';
 import React from 'react'
 import styled from 'styled-components'
-import { useRootStore } from '../../../pages/_app';
+import { Product } from '../../../constants/store';
+import { ICartGeneral } from '../../../model/CartModel';
+import { useRootStore } from '../../../stores/rootStoreProvider';
 
 const SimpleProductModal = observer(() => {
     const state = useRootStore();
+
+    const Product = (state.UiStore.currentProduct as Product);
+
+    const ProductToCart = (): ICartGeneral => {
+        return {
+            id: Product.id,
+            pic: Product.pic,
+            weight: Product.weight,
+            quantity: 1,
+            name: Product.name,
+            price: Product.price,
+        };
+    };
+
+    const addProduct = () => {
+        state.CartStore.addSimple(ProductToCart());
+        state.UiStore.hideModal();
+    }
+
     return (
         <Base>
             <Overlay onClick={() => state.UiStore.hideModal()} />
@@ -23,7 +44,7 @@ const SimpleProductModal = observer(() => {
                             <Header>{state.UiStore.currentProduct?.name}</Header>
                             <Weight>{state.UiStore.currentProduct?.weight}</Weight>
                             <Description>{state.UiStore.currentProduct?.desc}</Description>
-                            <Button>
+                            <Button onClick={() => addProduct()}>
                                 Добавить в корзину за
                                 <MoneyContainer>
                                     <Value>{state.UiStore.currentProduct?.price}</Value>

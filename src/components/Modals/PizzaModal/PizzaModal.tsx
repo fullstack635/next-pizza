@@ -3,7 +3,7 @@ import React from 'react'
 import styled, { DefaultStyledComponent } from 'styled-components'
 import { Pizza } from '../../../constants/store';
 import { ICartPizza, PizzaDough, PizzaSize } from '../../../model/CartModel';
-import { useRootStore } from '../../../pages/_app';
+import { useRootStore } from '../../../stores/rootStoreProvider';
 
 const PizzaModal = observer(() => {
 
@@ -50,6 +50,11 @@ const PizzaModal = observer(() => {
             default:
                 return '30 см';
         }
+    }
+
+    const addProduct = () => {
+        state.CartStore.addPizza(PizzaToCart());
+        state.UiStore.hideModal();
     }
 
     return (
@@ -116,7 +121,7 @@ const PizzaModal = observer(() => {
                                 </ScrollBoxOuter>
                             </Main>
                             <Footer>
-                                <Button onClick={() => state.CartStore.addPizza(PizzaToCart())}>
+                                <Button onClick={() => addProduct()}>
                                     Добавить в корзину за
                                     <MoneyContainer>
                                         <Price> {(state.UiStore.currentProduct as Pizza)?.price[size]} </Price>

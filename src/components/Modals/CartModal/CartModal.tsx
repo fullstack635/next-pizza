@@ -2,7 +2,8 @@ import { observer } from 'mobx-react-lite';
 import React from 'react'
 import styled from 'styled-components'
 import { ICart, ICartPizza, isPizza, PizzaDough, PizzaSize } from '../../../model/CartModel';
-import { useRootStore } from '../../../pages/_app'
+import { useRootStore } from '../../../stores/rootStoreProvider';
+
 
 const CartModal = observer(() => {
 
@@ -28,6 +29,31 @@ const CartModal = observer(() => {
         }
     }
 
+    const GoodsSwitch = () => {
+        const s = state.CartStore.cart.length;
+        const n1 = 'товаров';
+        const n2 = 'товар';
+        const n3 = 'товара';
+
+        if (s == 0) {
+            return n1;
+        }
+
+        else if (s % 100 >= 10 && s % 100 <= 20) {
+            return n1;
+        }
+
+        else if (s % 10 == 1) {
+            return n2;
+        }
+
+        else if (s % 10 >= 2 && s % 10 <= 4) {
+            return n3;
+        }
+
+        else return n1;
+    };
+
     const CartInfoToHuman = (item: ICartPizza) => {
         return `${SizeSwitch(item.size)}, ${DoughSwitch(item.dough)}`
     }
@@ -44,7 +70,7 @@ const CartModal = observer(() => {
                         <MainContainer>
                             <Main>
                                 <HeaderContainer>
-                                    <Header>{state.CartStore.cart.length} товар на {state.CartStore.getTotalPrice()}</Header>
+                                    <Header>{state.CartStore.cart.length} {GoodsSwitch()} на {state.CartStore.getTotalPrice}</Header>
                                 </HeaderContainer>
                                 <CartList>
                                     {state.CartStore.cart.map((item, index) => (
@@ -61,17 +87,17 @@ const CartModal = observer(() => {
                                             </ItemMain>
                                             <ItemFooter>
                                                 <ItemPriceContainer>
-                                                    <ItemPrice>{state.CartStore.getItemPrice(item.id)} ₽</ItemPrice>
+                                                    <ItemPrice>{parseInt(item.price) * item.quantity} ₽</ItemPrice>
                                                 </ItemPriceContainer>
                                                 <QuantityContainerOuter>
                                                     <QuantityContainerInner>
-                                                        <Decrease onClick={() => state.CartStore.decreaseQuantity(item.id)}>
+                                                        <Decrease onClick={() => state.CartStore.decreaseQuantity(item)}>
                                                             <svg width="10" height="10" viewBox="0 0 10 10"><rect fill="#454B54" y="4" width="10" height="2" rx="1"></rect></svg>
                                                         </Decrease>
                                                         <Quantity>
-                                                            {state.CartStore.getItemQuantity(item.id)}
+                                                            {item.quantity}
                                                         </Quantity>
-                                                        <Increase onClick={() => state.CartStore.increaseQuantity(item.id)}>
+                                                        <Increase onClick={() => state.CartStore.increaseQuantity(item)}>
                                                             <svg width="10" height="10" viewBox="0 0 10 10"><g fill="#454B54"><rect x="4" width="2" height="10" ry="1"></rect><rect y="4" width="10" height="2" rx="1"></rect></g></svg>
                                                         </Increase>
                                                     </QuantityContainerInner>
@@ -80,6 +106,22 @@ const CartModal = observer(() => {
                                         </CartItem>
                                     ))}
                                 </CartList>
+                                <CartFooter>
+                                    <PromoCode>
+                                        <span></span>
+                                    </PromoCode>
+                                    <ConfirmOrder>
+                                        <SubTotal>
+
+                                        </SubTotal>
+                                        <Info>
+
+                                        </Info>
+                                        <CheckoutButton>
+                                            К оформлению заказа
+                                        </CheckoutButton>
+                                    </ConfirmOrder>
+                                </CartFooter>
                             </Main>
                         </MainContainer>
                     </InnerContainer>
@@ -335,4 +377,91 @@ const Quantity = styled.div`
     -moz-box-align: center;
     align-items: center;
     font-weight: 500;
+`
+
+const CartFooter = styled.div`
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(6, 5, 50, 0.1) 0px -2px 4px;
+    padding-bottom: env(safe-area-inset-bottom);
+`
+
+const PromoCode = styled.section`
+    width: 100%;
+    position: relative;
+    padding: 16px 24px;
+    flex: 0 0 auto;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    &::after {
+        content: " ";
+        display: block;
+        position: absolute;
+        left: 24px;
+        right: 24px;
+        bottom: 0px;
+        border-bottom: 1px solid rgb(226, 226, 233);
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+    }   
+`
+
+const ConfirmOrder = styled.section`
+    width: 100%;
+    color: rgb(0, 0, 0);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 18px;
+    flex: 0 0 auto;
+    padding: 16px 24px 24px;
+`
+
+const SubTotal = styled.div`
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: normal;
+    border-bottom: 1px solid rgb(226, 226, 233);
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+`
+
+const Info = styled.div`
+    display: flex;
+    -moz-box-pack: justify;
+    justify-content: space-between;
+    color: rgb(0, 0, 0);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 18px;
+`
+
+const CheckoutButton = styled.button`
+    padding: 12px 54px 12px 48px;
+    width: 100%;
+    margin-top: 16px;
+    height: 48px;
+    padding: 12px 24px;
+    font-size: 16px;
+    line-height: 24px;
+    background-color: rgb(255, 105, 0);
+    color: rgb(255, 255, 255);
+    outline: currentcolor none medium;
+    border: medium none;
+    border-radius: 9999px;
+    text-align: center;
+    font-weight: 500;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    user-select: none;
+    transition-property: background-color, color;
+    transition-duration: 200ms;
+    transition-timing-function: ease-out;
+    &:hover {
+        background-color: rgb(216, 93, 6);
+    }
 `
