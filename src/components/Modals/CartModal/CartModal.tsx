@@ -113,7 +113,18 @@ const CartModal = observer(() => {
                                         </PromoCode>
                                         <ConfirmOrder>
                                             <SubTotal>
-
+                                                <SubTotalInfo>
+                                                    {state.CartStore.GoodsAmount} {GoodsSwitch()}
+                                                    <span>{state.CartStore.getTotalPrice} ₽</span>
+                                                </SubTotalInfo>
+                                                <SubTotalInfo>
+                                                    <span>Начислим додокоины</span>
+                                                    <span>+0
+                                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ verticalAlign: "-3px", marginLeft: "2px" }}>
+                                                            <path fillRule="evenodd" clipRule="evenodd" d="M8 13.444A5.444 5.444 0 108 2.556a5.444 5.444 0 000 10.888zM8 15A7 7 0 108 1a7 7 0 000 14z" fill="#000"></path><path d="M7.786 5C9.607 5 11 6.2 11 7.983 11 9.774 9.598 11 7.786 11H6.75c-.41 0-.75-.266-.75-.72V5.746C6 5.29 6.34 5 6.75 5h1.036z" fill="#000"></path>
+                                                        </svg>
+                                                    </span>
+                                                </SubTotalInfo>
                                             </SubTotal>
                                             <Info>
 
@@ -170,6 +181,9 @@ const CloseButton = styled.button`
     top: calc(50% - 12px);
     left: -48px;
     transition: transform 500ms ease 0s;
+    &:hover {
+        transform: rotateZ(300deg);
+    }
 `
 
 const OuterContainer = styled.div`
@@ -215,7 +229,8 @@ const Header = styled.h1`
 `
 
 const CartList = styled.section`
-    
+    overflow-y: auto;
+    height: 40rem;
 `
 
 const CartItem = styled.article`
@@ -429,6 +444,17 @@ const SubTotal = styled.div`
     border-bottom: 1px solid rgb(226, 226, 233);
     padding-bottom: 16px;
     margin-bottom: 16px;
+`
+
+const SubTotalInfo = styled.div`
+    margin-bottom: 8px;
+    display: flex;
+    -moz-box-pack: justify;
+    justify-content: space-between;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: normal;
+    color: rgb(0, 0, 0);
 `
 
 const Info = styled.div`

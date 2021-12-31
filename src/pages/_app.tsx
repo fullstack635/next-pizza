@@ -1,7 +1,7 @@
 import { AppProps } from 'next/app';
 import React from 'react'
 import { ThemeProvider } from 'styled-components';
-import Workaround from '../components/Workaround';
+import GlobalStyleMobX from '../components/GlobalStyleMobX';
 import { RootStoreProvider } from '../stores/rootStoreProvider';
 import { LightTheme } from '../styles/LightTheme';
 
@@ -9,7 +9,7 @@ function App({ Component, pageProps }: AppProps) {
     return (
         <RootStoreProvider>
             <ThemeProvider theme={LightTheme}>
-                <Workaround />
+                <GlobalStyleMobX />
                 <Component {...pageProps} />
             </ThemeProvider>
         </RootStoreProvider>

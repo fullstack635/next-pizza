@@ -6,6 +6,10 @@ interface GlobalProps extends DefaultStyledComponent {
 }
 
 export const Global = createGlobalStyle<GlobalProps>`
+@font-face {
+    font-family: "Dodo";
+    src: url("/assets/fonts/Dodo/dodo.woff2");
+}
 html,
 body {
     height: 100%;
@@ -15,7 +19,7 @@ body {
     font-family: ${(props) => props.theme.fonts.main};
     scroll-behavior: smooth;
     background: ${(props) => props.theme.palette.background.default} none repeat scroll 0% 0%;
-    overflow-y: ${(props) => props.lockscroll !== undefined ? 'hidden' : 'unset'};
+    overflow-y: ${(props) => props.lockscroll == 'cart' ? 'hidden' : 'unset'};
 }
 
 * {
@@ -23,7 +27,7 @@ body {
     padding: 0;
     outline: 0;
     box-sizing: border-box;
-    font-family: inherit;
+    font-family: Dodo;
     font-weight: inherit;
     font-size: inherit;
     color: inherit;

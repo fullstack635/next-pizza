@@ -3,7 +3,7 @@ import React from 'react'
 import { useRootStore } from '../stores/rootStoreProvider'
 import { Global } from '../styles/Global'
 
-const Workaround = observer(() => {
+const GlobalStyleMobX = observer(() => {
     const state = useRootStore();
     const lockscroll = state.UiStore.currentModal;
     return (
@@ -14,4 +14,4 @@ const Workaround = observer(() => {
 });
 
 
-export default Workaround;
+export default GlobalStyleMobX;
