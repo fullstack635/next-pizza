@@ -45,6 +45,7 @@ export interface Combo {
     desc: string;
     pic: string;
     price: string;
+    weight: string;
 }
 
 export const pseudostore: store = {
@@ -725,6 +726,7 @@ export const pseudostore: store = {
             desc: 'Наш хит «Аррива!» или другая пицца 25 см, Додстер, напиток и соус. Выбор пицц ограничен.',
             price: '599',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/ComboTemplates/fbf325ba27c24254b3461960263163c9_292x292.webp',
+            weight: ''
         },
         {
             type: 'combo',
@@ -733,6 +735,7 @@ export const pseudostore: store = {
             desc: 'Самое популярное комбо из 2 пицц 30 см. Выбор пицц ограничен.',
             price: '1089',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/ComboTemplates/d862fb75213047fbb8bb8819f42202e8_292x292.webp',
+            weight: ''
         },
         {
             type: 'combo',
@@ -741,6 +744,7 @@ export const pseudostore: store = {
             desc: '2 пиццы 25 см и напиток на выбор. Для компании из 2–4 человек. Выбор пицц ограничен.',
             price: '859',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/ComboTemplates/4c2255222bf746e890be4a1361018503_292x292.webp',
+            weight: ''
         },
         {
             type: 'combo',
@@ -749,6 +753,7 @@ export const pseudostore: store = {
             desc: '3 Coca-Cola 0,5 литра на выбор по выгодной цене!',
             price: '289',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/ComboTemplates/9c8ec60870904c17b11e241efb212982_292x292.webp',
+            weight: ''
         },
         {
             type: 'combo',
@@ -757,6 +762,7 @@ export const pseudostore: store = {
             desc: '3 пиццы 30 см на тонком тесте по суперцене. Выбор пицц ограничен',
             price: '1099',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/ComboTemplates/7f33a2d14f674d34b9c2912bd7c779f7_292x292.webp',
+            weight: ''
         },
         {
             type: 'combo',
@@ -765,6 +771,7 @@ export const pseudostore: store = {
             desc: '4 любых Додстера на выбор: Острый или Классический',
             price: '569',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/ComboTemplates/1cc271cd4c4749cda25ac52dc8b3fb6a_292x292.webp',
+            weight: ''
         },
         {
             type: 'combo',
@@ -773,6 +780,7 @@ export const pseudostore: store = {
             desc: '3 пиццы 30 см на любой вкус. Для компании из 5–10 человек. Выбор пицц ограничен.',
             price: '1 639',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/ComboTemplates/e2fa3c8c82e349439435ba1767366a70_292x292.webp',
+            weight: ''
         },
         {
             type: 'combo',
@@ -781,6 +789,7 @@ export const pseudostore: store = {
             desc: '5 пицц 30 см на любой вкус. Для компании из 10–15 человек. Выбор пицц ограничен.',
             price: '2 499',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/ComboTemplates/fb3318babb334371bbc642f383064f67_292x292.webp',
+            weight: ''
         },
         {
             type: 'combo',
@@ -789,6 +798,7 @@ export const pseudostore: store = {
             desc: '7 пицц 30 см на любой вкус. Для компании из 15–20 человек. Выбор пицц ограничен.',
             price: '3 399',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/ComboTemplates/25ee1c3b802e4b21879161e695527864_292x292.webp',
+            weight: ''
         },
         {
             type: 'combo',
@@ -797,6 +807,7 @@ export const pseudostore: store = {
             desc: '10 пицц 30 см на любой вкус. Для компании из 20–30 человек. Выбор пицц ограничен.',
             price: '4 799',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/ComboTemplates/e476da580f9b4e32bcefd2c97c836e7a_292x292.webp',
+            weight: ''
         }
     ],
     snacks: [
