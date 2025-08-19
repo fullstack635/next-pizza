@@ -7,7 +7,7 @@ import { productTranslations } from '../../../constants/productTranslations';
 export default function Combo(): JSX.Element {
 	const state = useRootStore();
 	const handleImgError: React.ReactEventHandler<HTMLImageElement> = (e) => {
-		(e.currentTarget as HTMLImageElement).src = '/assets/combo-icon.svg';
+		(e.currentTarget as HTMLImageElement).src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE5IDNIMTVDMTQuNDUgMyAxNCAzLjQ1IDE0IDRWMUg2VjRDNiAzLjQ1IDUuNTUgMyA1IDNIMUMwLjQ1IDMgMCAzLjQ1IDAgNFYxOEMwIDE4LjU1IDAuNDUgMTkgMSAxOUg1QzUuNTUgMTkgNiAxOC41NSA2IDE4VjE3SDE0VjE4QzE0IDE4LjU1IDE0LjQ1IDE5IDE1IDE5SDE5QzE5LjU1IDE5IDIwIDE4LjU1IDIwIDE4VjRDMjAgMy40NSAxOS41NSAzIDE5IDNaTTE4IDE3SDZWNkgxOFYxN1oiIGZpbGw9IiNmZjY5MDAiLz4KPHBhdGggZD0iTTggOEgxNlYxMEg4VjhaIiBmaWxsPSIjZmY2OTAwIi8+Cjwvc3ZnPgo=';
 	};
 	return (
 		<>

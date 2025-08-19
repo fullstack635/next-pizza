@@ -25,22 +25,9 @@ const ListMenu = observer((props: ListMenuProps): JSX.Element => {
                 <InnerLink href="#desert">{t('nav.deserts')}</InnerLink>
             </ListItem>
             <ListItem>
-                <InnerLink href="#drink">{t('nav.drinks')}</InnerLink>
-            </ListItem>
-            <ListItem>
-                <InnerLink href="#other">{t('nav.other')}</InnerLink>
-            </ListItem>
-            <ListItem>
-                <InnerLink>{t('nav.sales')}</InnerLink>
-            </ListItem>
-            <ListItem>
-                <InnerLink>{t('nav.contacts')}</InnerLink>
-            </ListItem>
-            <ListItem>
-                <InnerLink>{t('nav.about')}</InnerLink>
-            </ListItem>
-            <ListItem>
-                <InnerLink>{t('nav.careers')}</InnerLink>
+                <SubscriptionButton onClick={() => window.location.href = '/subscription'}>
+                    {t('buttons.subscribe')}
+                </SubscriptionButton>
             </ListItem>
         </List>
     )
@@ -89,5 +76,23 @@ const InnerLink = styled.a`
     outline: currentcolor none medium;
     &:hover {
         color: rgb(255, 105, 0);
+    }
+`
+
+const SubscriptionButton = styled.button`
+    display: inline-block;
+    font-weight: 500;
+    padding: 12px 20px;
+    background: #ff6900;
+    color: white;
+    font-size: 14px;
+    line-height: 1;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.25s ease 0s;
+    outline: currentcolor none medium;
+    &:hover {
+        background: #e55a00;
     }
 `

@@ -63,7 +63,7 @@ const PizzaModal = observer(() => {
 	}
 
 	const handleImgError: React.ReactEventHandler<HTMLImageElement> = (e) => {
-		(e.currentTarget as HTMLImageElement).src = '/assets/placeholder.svg';
+		(e.currentTarget as HTMLImageElement).src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyQzIgMTcuNTIgNi40OCAyMiAxMiAyMkMxNy41MiAyMiAyMiAxNy41MiAyMiAxMkMyMiA2LjQ4IDE3LjUyIDIgMTIgMloiIGZpbGw9IiNmZjY5MDAiLz4KPHBhdGggZD0iTTEyIDZDNi40OCA2IDIgMTAuNDggMiAxNkMyIDIxLjUyIDYuNDggMjYgMTIgMjZDMjEuNTIgMjYgMjYgMjEuNTIgMjYgMTZDMjYgMTAuNDggMjEuNTIgNiAxMiA2WiIgZmlsbD0iI2ZmOTAwMCIvPgo8cGF0aCBkPSJNMTIgMTBDOC42OSAxMCA2IDEyLjY5IDYgMTZDNiAxOS4zMSA4LjY5IDIyIDEyIDIyQzE1LjMxIDIyIDE4IDE5LjMxIDE4IDE2QzE4IDEyLjY5IDE1LjMxIDEwIDEyIDEwWiIgZmlsbD0iI2ZmYjMwMCIvPgo8L3N2Zz4K';
 	};
 
 	return (

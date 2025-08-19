@@ -7,7 +7,7 @@ import { productTranslations } from '../../../constants/productTranslations';
 export default function Other(): JSX.Element {
 	const state = useRootStore();
 	const handleImgError: React.ReactEventHandler<HTMLImageElement> = (e) => {
-		(e.currentTarget as HTMLImageElement).src = '/assets/other-icon.svg';
+		(e.currentTarget as HTMLImageElement).src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyQzIgMTcuNTIgNi40OCAyMiAxMiAyMkMxNy41MiAyMiAyMiAxNy41MiAyMiAxMkMyMiA2LjQ4IDE3LjUyIDIgMTIgMloiIGZpbGw9IiNmZjY5MDAiLz4KPHBhdGggZD0iTTggMTJIMTZWMTRIOFYxMloiIGZpbGw9IiNmZmZmZmYiLz4KPHBhdGggZD0iTTEyIDhWMTZIMTJWOFoiIGZpbGw9IiNmZmZmZmYiLz4KPC9zdmc+Cg==';
 	};
 	return (
 		<>
