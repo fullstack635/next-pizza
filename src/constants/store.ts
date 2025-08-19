@@ -142,29 +142,6 @@ export const pseudostore: store = {
             },
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/679924dc-e4fd-45fd-aceb-be139f265425.jpg',
         },
-        {
-            type: 'pizza',
-            id: 5,
-            name: 'Карбонара',
-            desc: 'Бекон, сыры чеддер и пармезан, моцарелла, томаты, красный лук, чеснок, соус альфредо, итальянские травы',
-            price: {
-                sm: '495',
-                md: '749',
-                xl: '879',
-            },
-            weight: {
-                trad: {
-                    sm: '420',
-                    md: '620',
-                    xl: '840',
-                },
-                thin: {
-                    md: '510',
-                    xl: '730',
-                }
-            },
-            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/7a0fac09c2264f8e8928f205c7acb5cf_292x292.jpeg',
-        },
     ],
     combo: [
         {
@@ -201,15 +178,6 @@ export const pseudostore: store = {
             desc: '3 Coca-Cola 0,5 литра на выбор по выгодной цене!',
             price: '289',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/ComboTemplates/9c8ec60870904c17b11e241efb212982_292x292.webp',
-            weight: ''
-        },
-        {
-            type: 'combo',
-            id: 34,
-            name: 'Комбо за 1099 ₽',
-            desc: '3 пиццы 30 см на тонком тесте по суперцене. Выбор пицц ограничен',
-            price: '1099',
-            pic: 'https://dodopizza-a.akamaihd.net/static/Img/ComboTemplates/7f33a2d14f674d34b9c2912bd7c779f7_292x292.webp',
             weight: ''
         },
     ],
@@ -250,15 +218,6 @@ export const pseudostore: store = {
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/4f21f83f43674d37818f1a26e0e43b65_292x292.jpeg',
             weight: '160 г',
         },
-        {
-            type: 'snack',
-            id: 44,
-            name: 'Острый Стартер',
-            desc: 'Горячая закуска с острыми колбасками чоризо, цыпленком, перчиком халапеньо, моцареллой и соусом барбекю в тонкой пшеничной лепешке',
-            price: '169',
-            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/73c4ba899f164333b208df5439f3d27f_292x292.jpeg',
-            weight: '160 г',
-        },
     ],
     deserts: [
         {
@@ -296,15 +255,6 @@ export const pseudostore: store = {
             price: '179',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/c78250b130a04c308b6df6994ae0d3d4_292x292.jpeg',
             weight: '0,3 л',
-        },
-        {
-            type: 'desert',
-            id: 59,
-            name: 'Вишневый пирог',
-            desc: 'Это не просто десерт, а вишенка на торте! Творожно-песочное тесто с ягодами, заварным кремом и лепестками миндаля.',
-            price: '149',
-            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/4c4be1059e5c4643887258b0ff49a557_292x292.jpeg',
-            weight: '104 г',
         },
     ],
     drinks: [
@@ -344,15 +294,6 @@ export const pseudostore: store = {
             price: '119',
             pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/4dde423fc98f4c01a3862917ef7bcb25_292x292.jpeg'
         },
-        {
-            type: 'drink',
-            id: 75,
-            name: 'Sprite',
-            desc: '',
-            weight: '0.5 л',
-            price: '119',
-            pic: 'https://dodopizza-a.akamaihd.net/static/Img/Products/cbf4fc24b6784abe9b061f44411bebed_292x292.jpeg'
-        },
     ],
     other: [
         {
@@ -390,15 +331,6 @@ export const pseudostore: store = {
             weight: '1 шт',
             price: '10',
             pic: 'https://cdn.dodopizza.net/static/Img/Products/Goods/ru-RU/de3d1762-5f99-42d9-b3a7-ec312d0840a0.jpg'
-        },
-        {
-            type: 'other',
-            id: 101,
-            name: 'Додо колпак',
-            desc: '',
-            weight: '1 шт',
-            price: '10',
-            pic: 'https://cdn.dodopizza.net/static/Img/Products/Goods/ru-RU/6907f6d5-a1bd-4954-913d-3caf6a79e448.jpg'
         },
     ]
 }
