@@ -1,46 +1,52 @@
 import React from 'react'
 import styled, { DefaultStyledComponent } from 'styled-components'
+import { observer } from 'mobx-react-lite'
+import { useRootStore } from '../../../stores/rootStoreProvider'
 
 interface ListMenuProps {
     sticky: boolean;
 }
 
-export default function ListMenu(props: ListMenuProps): JSX.Element {
+const ListMenu = observer((props: ListMenuProps): JSX.Element => {
+    const state = useRootStore();
+    const t = (key: string) => state.LangStore.t(key);
     return (
         <List sticky={props.sticky}>
             <ListItem>
-                <InnerLink href="#pizza">Пицца</InnerLink>
+                <InnerLink href="#pizza">{t('nav.pizza')}</InnerLink>
             </ListItem>
             <ListItem>
-                <InnerLink href="#combo">Комбо</InnerLink>
+                <InnerLink href="#combo">{t('nav.combo')}</InnerLink>
             </ListItem>
             <ListItem>
-                <InnerLink href="#snack">Закуски</InnerLink>
+                <InnerLink href="#snack">{t('nav.snacks')}</InnerLink>
             </ListItem>
             <ListItem>
-                <InnerLink href="#desert">Десерты</InnerLink>
+                <InnerLink href="#desert">{t('nav.deserts')}</InnerLink>
             </ListItem>
             <ListItem>
-                <InnerLink href="#drink">Напитки</InnerLink>
+                <InnerLink href="#drink">{t('nav.drinks')}</InnerLink>
             </ListItem>
             <ListItem>
-                <InnerLink href="#other">Другие товары</InnerLink>
+                <InnerLink href="#other">{t('nav.other')}</InnerLink>
             </ListItem>
             <ListItem>
-                <InnerLink>Акции</InnerLink>
+                <InnerLink>{t('nav.sales')}</InnerLink>
             </ListItem>
             <ListItem>
-                <InnerLink>Контакты</InnerLink>
+                <InnerLink>{t('nav.contacts')}</InnerLink>
             </ListItem>
             <ListItem>
-                <InnerLink>О нас</InnerLink>
+                <InnerLink>{t('nav.about')}</InnerLink>
             </ListItem>
             <ListItem>
-                <InnerLink>Работа в Додо</InnerLink>
+                <InnerLink>{t('nav.careers')}</InnerLink>
             </ListItem>
         </List>
     )
-}
+});
+
+export default ListMenu;
 
 interface ListProps extends DefaultStyledComponent {
     sticky: boolean;

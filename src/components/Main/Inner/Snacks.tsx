@@ -2,37 +2,47 @@ import React from 'react'
 import { pseudostore } from '../../../constants/store'
 import { useRootStore } from '../../../stores/rootStoreProvider';
 import { Button, Header, InnerFooter, MoneyContainer, MoneyCurrency, MoneyValue, Product, ProductFooter, ProductImage, ProductInner, ProductName, ProductPicture, Section } from '../Main.style'
+import { productTranslations } from '../../../constants/productTranslations';
 
 export default function Snacks(): JSX.Element {
-    const state = useRootStore();
-    return (
-        <>
-            <Header id="snack">Закуски</Header>
-            <Section>
-                {pseudostore.snacks.map((item) => (
-                    <Product key={item.id} onClick={() => state.UiStore.setCurrentProduct(item)}>
-                        <ProductInner>
-                            <ProductPicture>
-                                <ProductImage src={item.pic} />
-                            </ProductPicture>
-                            <ProductName>
-                                {item.name}
-                            </ProductName>
-                            {item.desc}
-                        </ProductInner>
-                        <ProductFooter>
-                            <InnerFooter>
-                                <MoneyContainer>
-                                    от
-                                    <MoneyValue> {item.price} </MoneyValue>
-                                    <MoneyCurrency>₽</MoneyCurrency>
-                                </MoneyContainer>
-                                <Button>В корзину</Button>
-                            </InnerFooter>
-                        </ProductFooter>
-                    </Product>
-                ))}
-            </Section>
-        </>
-    )
+	const state = useRootStore();
+	const handleImgError: React.ReactEventHandler<HTMLImageElement> = (e) => {
+		(e.currentTarget as HTMLImageElement).src = '/assets/snack-icon.svg';
+	};
+	return (
+		<>
+			<Header id="snack">{state.LangStore.t('nav.snacks')}</Header>
+			<Section>
+				{pseudostore.snacks.map((item) => {
+					const key = `snack:${item.id}` as const;
+					const tr = productTranslations[state.LangStore.locale][key];
+					const name = tr?.name ?? item.name;
+					const desc = tr?.desc ?? item.desc;
+					return (
+						<Product key={item.id} onClick={() => state.UiStore.setCurrentProduct(item)}>
+							<ProductInner>
+								<ProductPicture>
+									<ProductImage src={item.pic} onError={handleImgError} />
+								</ProductPicture>
+								<ProductName>
+									{name}
+								</ProductName>
+								{desc}
+							</ProductInner>
+							<ProductFooter>
+								<InnerFooter>
+									<MoneyContainer>
+										{state.LangStore.t('common.from')}
+										<MoneyValue> {item.price} </MoneyValue>
+										<MoneyCurrency>₽</MoneyCurrency>
+									</MoneyContainer>
+									<Button>{state.LangStore.t('buttons.addToCart')}</Button>
+								</InnerFooter>
+							</ProductFooter>
+						</Product>
+					);
+				})}
+			</Section>
+		</>
+	)
 }

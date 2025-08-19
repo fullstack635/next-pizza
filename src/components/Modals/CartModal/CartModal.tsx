@@ -7,141 +7,121 @@ import { useRootStore } from '../../../stores/rootStoreProvider';
 
 const CartModal = observer(() => {
 
-    const state = useRootStore();
+	const state = useRootStore();
 
-    const SizeSwitch = (size: PizzaSize) => {
-        switch (size) {
-            case 'sm':
-                return 'Маленькая 25 см';
-            case 'md':
-                return 'Средняя 30 см';
-            case 'xl':
-                return 'Большая 35 см';
-        };
-    };
+	const SizeSwitch = (size: PizzaSize) => {
+		switch (size) {
+			case 'sm':
+				return 'Small 25 cm';
+			case 'md':
+				return 'Medium 30 cm';
+			case 'xl':
+				return 'Large 35 cm';
+		};
+	};
 
-    const DoughSwitch = (dough: PizzaDough) => {
-        switch (dough) {
-            case 'thin':
-                return 'тонкое тесто';
-            case 'trad':
-                return 'традиционное тесто';
-        }
-    }
+	const DoughSwitch = (dough: PizzaDough) => {
+		switch (dough) {
+			case 'thin':
+				return 'thin dough';
+			case 'trad':
+				return 'traditional dough';
+		}
+	}
 
-    const GoodsSwitch = () => {
-        const s = state.CartStore.GoodsAmount;
-        const n1 = 'товаров';
-        const n2 = 'товар';
-        const n3 = 'товара';
+	const GoodsSwitch = () => {
+		const s = state.CartStore.GoodsAmount;
+		return s === 1 ? 'item' : 'items';
+	};
 
-        if (s == 0) {
-            return n1;
-        }
+	const CartInfoToHuman = (item: ICartPizza) => {
+		return `${SizeSwitch(item.size)}, ${DoughSwitch(item.dough)}`
+	}
 
-        else if (s % 100 >= 10 && s % 100 <= 20) {
-            return n1;
-        }
-
-        else if (s % 10 == 1) {
-            return n2;
-        }
-
-        else if (s % 10 >= 2 && s % 10 <= 4) {
-            return n3;
-        }
-
-        else return n1;
-    };
-
-    const CartInfoToHuman = (item: ICartPizza) => {
-        return `${SizeSwitch(item.size)}, ${DoughSwitch(item.dough)}`
-    }
-
-    return (
-        <>
-            <Overlay onClick={() => state.UiStore.hideModal()} />
-            <Base>
-                <CloseButton onClick={() => state.UiStore.hideModal()}>
-                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none"><path fillRule="evenodd" clipRule="evenodd" d="M9.61 12.199L.54 3.129A1.833 1.833 0 113.13.536l9.07 9.07L21.27.54a1.833 1.833 0 012.592 2.592l-9.068 9.068 9.07 9.07a1.833 1.833 0 01-2.59 2.592l-9.072-9.07-9.073 9.073a1.833 1.833 0 01-2.591-2.592L9.61 12.2z" fill="#fff"></path></svg>
-                </CloseButton>
-                <OuterContainer>
-                    <InnerContainer>
-                        {state.CartStore.GoodsAmount > 0 ?
-                            <MainContainer>
-                                <Main>
-                                    <HeaderContainer>
-                                        <Header>{state.CartStore.GoodsAmount} {GoodsSwitch()} на {state.CartStore.getTotalPrice}</Header>
-                                    </HeaderContainer>
-                                    <CartList>
-                                        {state.CartStore.cart.map((item, index) => (
-                                            <CartItem key={index}>
-                                                <CartItemBack />
-                                                <ItemMain>
-                                                    <ItemPicture>
-                                                        <ItemIMG src={item.pic} />
-                                                    </ItemPicture>
-                                                    <ItemInfo>
-                                                        <ItemName>{item.name}</ItemName>
-                                                        <ItemAdditionalInfo>{isPizza(item) ? `${CartInfoToHuman(item)}` : item.weight}</ItemAdditionalInfo>
-                                                    </ItemInfo>
-                                                </ItemMain>
-                                                <ItemFooter>
-                                                    <ItemPriceContainer>
-                                                        <ItemPrice>{parseInt(item.price) * item.quantity} ₽</ItemPrice>
-                                                    </ItemPriceContainer>
-                                                    <QuantityContainerOuter>
-                                                        <QuantityContainerInner>
-                                                            <Decrease onClick={() => state.CartStore.decreaseQuantity(item)}>
-                                                                <svg width="10" height="10" viewBox="0 0 10 10"><rect fill="#454B54" y="4" width="10" height="2" rx="1"></rect></svg>
-                                                            </Decrease>
-                                                            <Quantity>
-                                                                {item.quantity}
-                                                            </Quantity>
-                                                            <Increase onClick={() => state.CartStore.increaseQuantity(item)}>
-                                                                <svg width="10" height="10" viewBox="0 0 10 10"><g fill="#454B54"><rect x="4" width="2" height="10" ry="1"></rect><rect y="4" width="10" height="2" rx="1"></rect></g></svg>
-                                                            </Increase>
-                                                        </QuantityContainerInner>
-                                                    </QuantityContainerOuter>
-                                                </ItemFooter>
-                                            </CartItem>
-                                        ))}
-                                    </CartList>
-                                    <CartFooter>
-                                        <PromoCode>
-                                            <span></span>
-                                        </PromoCode>
-                                        <ConfirmOrder>
-                                            <SubTotal>
-                                                <SubTotalInfo>
-                                                    {state.CartStore.GoodsAmount} {GoodsSwitch()}
-                                                    <span>{state.CartStore.getTotalPrice} ₽</span>
-                                                </SubTotalInfo>
-                                                <SubTotalInfo>
-                                                    <span>Начислим додокоины</span>
-                                                    <span>+0
-                                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ verticalAlign: "-3px", marginLeft: "2px" }}>
-                                                            <path fillRule="evenodd" clipRule="evenodd" d="M8 13.444A5.444 5.444 0 108 2.556a5.444 5.444 0 000 10.888zM8 15A7 7 0 108 1a7 7 0 000 14z" fill="#000"></path><path d="M7.786 5C9.607 5 11 6.2 11 7.983 11 9.774 9.598 11 7.786 11H6.75c-.41 0-.75-.266-.75-.72V5.746C6 5.29 6.34 5 6.75 5h1.036z" fill="#000"></path>
-                                                        </svg>
-                                                    </span>
-                                                </SubTotalInfo>
-                                            </SubTotal>
-                                            <Info>
-
-                                            </Info>
-                                            <CheckoutButton>
-                                                К оформлению заказа
-                                            </CheckoutButton>
-                                        </ConfirmOrder>
-                                    </CartFooter>
-                                </Main>
-                            </MainContainer>
-                            : null}
-                    </InnerContainer>
-                </OuterContainer>
-            </Base>
-        </>
-    )
+	return (
+		<>
+			<Overlay onClick={() => state.UiStore.hideModal()} />
+			<Base>
+				<CloseButton onClick={() => state.UiStore.hideModal()}>
+					<svg width="25" height="25" viewBox="0 0 25 25" fill="none"><path fillRule="evenodd" clipRule="evenodd" d="M9.61 12.199L.54 3.129A1.833 1.833 0 113.13.536l9.07 9.07L21.27.54a1.833 1.833 0 012.592 2.592l-9.068 9.068 9.07 9.07a1.833 1.833 0 01-2.59 2.592l-9.072-9.07-9.073 9.073a1.833 1.833 0 01-2.591-2.592L9.61 12.2z" fill="#fff"></path></svg>
+				</CloseButton>
+				<OuterContainer>
+					<InnerContainer>
+						{state.CartStore.GoodsAmount > 0 ?
+							<MainContainer>
+								<Main>
+									<HeaderContainer>
+										<Header>{state.CartStore.GoodsAmount} {GoodsSwitch()} for {state.CartStore.getTotalPrice}</Header>
+									</HeaderContainer>
+									<CartList>
+										{state.CartStore.cart.map((item, index) => (
+											<CartItem key={index}>
+												<CartItemBack />
+												<ItemMain>
+													<ItemPicture>
+														<ItemIMG src={item.pic} />
+													</ItemPicture>
+													<ItemInfo>
+														<ItemName>{item.name}</ItemName>
+														<ItemAdditionalInfo>{isPizza(item) ? `${CartInfoToHuman(item)}` : item.weight}</ItemAdditionalInfo>
+													</ItemInfo>
+												</ItemMain>
+												<ItemFooter>
+													<ItemPriceContainer>
+														<ItemPrice>{parseInt(item.price) * item.quantity} ₽</ItemPrice>
+													</ItemPriceContainer>
+													<QuantityContainerOuter>
+														<QuantityContainerInner>
+															<Decrease onClick={() => state.CartStore.decreaseQuantity(item)}>
+																<svg width="10" height="10" viewBox="0 0 10 10"><rect fill="#454B54" y="4" width="10" height="2" rx="1"></rect></svg>
+															</Decrease>
+															<Quantity>
+																{item.quantity}
+															</Quantity>
+															<Increase onClick={() => state.CartStore.increaseQuantity(item)}>
+																<svg width="10" height="10" viewBox="0 0 10 10"><g fill="#454B54"><rect x="4" width="2" height="10" ry="1"></rect><rect y="4" width="10" height="2" rx="1"></rect></g></svg>
+															</Increase>
+														</QuantityContainerInner>
+													</QuantityContainerOuter>
+												</ItemFooter>
+											</CartItem>
+										))}
+									</CartList>
+									<CartFooter>
+										<PromoCode>
+											<span></span>
+										</PromoCode>
+										<ConfirmOrder>
+											<SubTotal>
+												<SubTotalInfo>
+													{state.CartStore.GoodsAmount} {GoodsSwitch()}
+													<span>{state.CartStore.getTotalPrice} ₽</span>
+												</SubTotalInfo>
+												<SubTotalInfo>
+													<span>Dodo coins reward</span>
+													<span>+0
+														<svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ verticalAlign: "-3px", marginLeft: "2px" }}>
+															<path fillRule="evenodd" clipRule="evenodd" d="M8 13.444A5.444 5.444 0 108 2.556a5.444 5.444 0 000 10.888zM8 15A7 7 0 108 1a7 7 0 000 14z" fill="#000"></path><path d="M7.786 5C9.607 5 11 6.2 11 7.983 11 9.774 9.598 11 7.786 11H6.75c-.41 0-.75-.266-.75-.72V5.746C6 5.29 6.34 5 6.75 5h1.036z" fill="#000"></path>
+														</svg>
+													</span>
+												</SubTotalInfo>
+											</SubTotal>
+											<Info>
+											
+											</Info>
+											<CheckoutButton>
+												{state.LangStore.t('cart.title')} checkout
+											</CheckoutButton>
+										</ConfirmOrder>
+									</CartFooter>
+								</Main>
+							</MainContainer>
+							: null}
+						</InnerContainer>
+					</OuterContainer>
+			</Base>
+		</>
+	)
 });
 
 export default CartModal;

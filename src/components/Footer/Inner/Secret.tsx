@@ -25,8 +25,8 @@ export default function Secret(): JSX.Element {
                         </g>
                     </svg>
                 </SecretImage>
-                <SecretDescription>Стань тайным покупателем Додо Пиццы и получи пиццу в подарок</SecretDescription>
-                <SecretButton>Заполнить анкету</SecretButton>
+                <SecretDescription>Professional Next.js demo project showcasing modern web development skills</SecretDescription>
+                <SecretButton>View Source Code</SecretButton>
             </SecretInner>
         </SSecret>
     )

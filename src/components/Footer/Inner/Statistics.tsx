@@ -8,25 +8,25 @@ export default function Statistics(): JSX.Element {
                 <StatsSection>
                     <StatsMain>
                         <Money>
-                            <MoneyValue>712 219 962</MoneyValue>
-                            <MoneyCurrency> ₽</MoneyCurrency>
+                            <MoneyValue>Next.js</MoneyValue>
+                            <MoneyCurrency> Demo</MoneyCurrency>
                         </Money>
                     </StatsMain>
                     <StatsMore>
-                        Выручка российской сети в этом месяце. В прошлом —
-                        <MoneyValue>2 995 958 933</MoneyValue>
-                        <MoneyCurrency> ₽</MoneyCurrency>
+                        Professional React/Next.js project for Tomek
+                        <br />
+                        <MoneyValue>Multi-language Support</MoneyValue>
+                        <MoneyCurrency> • Modern UI/UX</MoneyCurrency>
                     </StatsMore>
                 </StatsSection>
                 <StatsSection>
-                    <StatsMain>755 пиццерий</StatsMain>
-                    <StatsMore>в 15 странах, от Великобритании до Нигерии</StatsMore>
+                    <StatsMain>Built with ❤️</StatsMain>
+                    <StatsMore>Next.js • TypeScript • Styled Components • MobX</StatsMore>
                 </StatsSection>
             </InnerStats>
         </SStatistics>
     )
 }
-
 
 const SStatistics = styled.div`
     -moz-box-pack: justify;
@@ -47,7 +47,6 @@ const StatsSection = styled.div`
     align-items: flex-start;
     max-width: 29%;
     margin-right: 60px;
-
 `
 
 const StatsMain = styled.span`
@@ -65,7 +64,7 @@ const Money = styled.span`
 `
 
 const MoneyValue = styled.span`
-    
+    color: #ff6900;
 `
 
 const MoneyCurrency = styled.span`
